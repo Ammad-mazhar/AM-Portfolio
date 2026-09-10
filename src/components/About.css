@@ -1,0 +1,52 @@
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 48px;
+  align-items: stretch;
+}
+
+.about__text {
+  max-width: 680px;
+}
+
+.about__text p {
+  color: var(--muted);
+  margin: 0 0 18px;
+  font-size: 1.02rem;
+}
+
+.about__text p:last-child {
+  margin-bottom: 0;
+}
+
+.about__portrait {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--panel);
+}
+
+.about__portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+@media (max-width: 900px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+  .about__portrait {
+    max-width: 320px;
+  }
+
+  .about__portrait img {
+    height: auto;
+    aspect-ratio: 3 / 4;
+  }
+}

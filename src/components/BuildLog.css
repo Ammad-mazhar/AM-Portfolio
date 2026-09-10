@@ -1,0 +1,84 @@
+.build-log__timeline {
+  list-style: none;
+  margin: 0;
+  position: relative;
+}
+
+.build-log__timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: var(--border);
+}
+
+.build-log__entry {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 48px;
+  list-style: none;
+}
+
+.build-log__entry:last-child {
+  margin-bottom: 0;
+}
+
+.build-log__marker {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.12);
+}
+
+.build-log__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.build-log__range {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--faint);
+  letter-spacing: 0.04em;
+}
+
+.build-log__tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+.build-log__role {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--text);
+  margin: 0 0 12px;
+}
+
+.build-log__bullets {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.build-log__bullets li {
+  list-style: disc;
+}
