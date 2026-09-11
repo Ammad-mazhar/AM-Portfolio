@@ -17,11 +17,14 @@
 }
 
 .nav__logo {
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav__logo img {
+  display: block;
+  height: 40px;
+  width: 40px;
 }
 
 .nav__links {

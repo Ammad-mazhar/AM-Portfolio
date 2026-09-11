@@ -17,8 +17,8 @@ export default function Nav() {
   return (
     <header className="nav">
       <div className="nav__inner container">
-        <a href="#top" className="nav__logo">
-          AM
+        <a href="#top" className="nav__logo" aria-label="Ammad Mazhar — home">
+          <img src="/logo-mark.svg" alt="Ammad Mazhar" width="40" height="40" />
         </a>
 
         <button

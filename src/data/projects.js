@@ -1,4 +1,4 @@
-export const filters = ['All', 'React', 'Next.js', 'Laravel', 'HTML/CSS/JS'];
+export const filters = ['All', 'React', 'Next.js', 'HTML/CSS/JS'];
 
 export const projects = [
   {
@@ -13,6 +13,16 @@ export const projects = [
   },
   {
     sheet: '02',
+    status: 'In Progress',
+    title: 'Alliance Repair Services',
+    description: 'Service website for a home HVAC and appliance repair company.',
+    tags: ['React', 'Vite', 'Express.js', 'Services'],
+    stack: 'React',
+    image: '/projects/alliance-repair-services.jpg',
+    link: 'https://alliance-repair-services.netlify.app/',
+  },
+  {
+    sheet: '03',
     status: 'Live',
     title: 'Aero Tech Solution Inc.',
     description: 'Long-term client site, live for 1+ year, with full stack maintenance.',
@@ -22,7 +32,7 @@ export const projects = [
     link: 'https://aerotechsolutioninc.com/',
   },
   {
-    sheet: '03',
+    sheet: '04',
     status: 'Live',
     title: 'ZeeGlobal',
     description: 'Next.js e-commerce storefront, live on a custom domain.',
@@ -32,7 +42,7 @@ export const projects = [
     link: 'https://zeeglobalproducts.com',
   },
   {
-    sheet: '04',
+    sheet: '05',
     status: 'Live',
     title: 'Rehman Alliance',
     description: 'Marketing site for a commercial general contractor, built and deployed for the client.',
@@ -42,7 +52,7 @@ export const projects = [
     link: 'https://rehmanalliance.netlify.app/',
   },
   {
-    sheet: '05',
+    sheet: '06',
     status: 'Live',
     title: 'Alliance Allied Inc.',
     description: 'Corporate site for an industrial engineering and construction firm.',
@@ -52,7 +62,7 @@ export const projects = [
     link: 'https://alliancealliedinc.netlify.app/',
   },
   {
-    sheet: '06',
+    sheet: '07',
     status: 'Live',
     title: 'ApexCut',
     description: 'Product site for a professional grooming-tools brand.',
@@ -62,7 +72,7 @@ export const projects = [
     link: 'https://apexcut.netlify.app/',
   },
   {
-    sheet: '07',
+    sheet: '08',
     status: 'Live',
     title: 'Allied Home Comfort',
     description: 'Booking-focused site for an appliance repair and property maintenance service.',
@@ -70,15 +80,5 @@ export const projects = [
     stack: 'HTML/CSS/JS',
     image: '/projects/allied-home-comfort.jpg',
     link: 'https://alliedhomecomfort.netlify.app/',
-  },
-  {
-    sheet: '08',
-    status: 'Coursework',
-    title: 'Calligraphy Frontend',
-    description: 'Typography-focused frontend paired with a Laravel backend, built as coursework.',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Laravel'],
-    stack: 'Laravel',
-    image: null,
-    link: null,
   },
 ];
