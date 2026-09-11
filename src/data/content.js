@@ -1,8 +1,8 @@
 export const contact = {
   name: 'Ammad Mazhar',
   email: 'ammadmazhar990@gmail.com',
-  phone: '+92 311 3048674',
-  phoneHref: '+923113048674',
+  phone: '+92 327 2569014',
+  phoneHref: '+923272569014',
   github: 'https://github.com/Ammad-mazhar',
   linkedin: 'https://www.linkedin.com/in/ammad-mazhar-3663bb348',
 };

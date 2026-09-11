@@ -21,6 +21,10 @@ const SUGGESTIONS = [
 
 const ENDPOINT = '/.netlify/functions/chat';
 const MAX_MESSAGE_CHARS = 2000;
+// A cold serverless function can occasionally time out on its first request.
+// One silent retry smooths that over without the visitor needing to resend.
+const MAX_SEND_ATTEMPTS = 2;
+const RETRY_DELAY_MS = 600;
 
 // Assistant bubbles render Markdown; open links in a new, safe tab.
 const MARKDOWN_COMPONENTS = {
@@ -89,62 +93,79 @@ export default function Chatbot() {
       setLoading(true);
       atBottomRef.current = true;
 
-      const controller = new AbortController();
-      abortRef.current = controller;
+      let lastError = null;
 
-      try {
-        const res = await fetch(ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          // Drop the static greeting (index 0) — the model doesn't need it.
-          body: JSON.stringify({ messages: outgoing.slice(1) }),
-          signal: controller.signal,
-        });
-
-        if (!res.ok || !res.body) {
-          const data = await res.json().catch(() => ({}));
-          throw new Error(data.error || `Request failed (${res.status})`);
-        }
-
-        const reader = res.body.getReader();
-        const decoder = new TextDecoder();
+      // A cold serverless function can occasionally be slow enough to time out on
+      // the very first request. That's transient, not a real failure, so retry once
+      // automatically — but only if nothing streamed in yet (never risk duplicating
+      // a partial reply) and the user didn't press Stop themselves.
+      for (let attempt = 1; attempt <= MAX_SEND_ATTEMPTS; attempt++) {
+        const controller = new AbortController();
+        abortRef.current = controller;
         let receivedAny = false;
 
-        for (;;) {
-          const { done, value } = await reader.read();
-          if (done) break;
-
-          const chunk = decoder.decode(value, { stream: true });
-          if (!chunk) continue;
-
-          receivedAny = true;
-          setMessages((prev) => {
-            const next = prev.slice();
-            const last = next[next.length - 1];
-            next[next.length - 1] = { ...last, content: last.content + chunk };
-            return next;
+        try {
+          const res = await fetch(ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            // Drop the static greeting (index 0) — the model doesn't need it.
+            body: JSON.stringify({ messages: outgoing.slice(1) }),
+            signal: controller.signal,
           });
-        }
 
-        if (!receivedAny) {
-          throw new Error('The assistant returned an empty response.');
+          if (!res.ok || !res.body) {
+            const data = await res.json().catch(() => ({}));
+            throw new Error(data.error || `Request failed (${res.status})`);
+          }
+
+          const reader = res.body.getReader();
+          const decoder = new TextDecoder();
+
+          for (;;) {
+            const { done, value } = await reader.read();
+            if (done) break;
+
+            const chunk = decoder.decode(value, { stream: true });
+            if (!chunk) continue;
+
+            receivedAny = true;
+            setMessages((prev) => {
+              const next = prev.slice();
+              const last = next[next.length - 1];
+              next[next.length - 1] = { ...last, content: last.content + chunk };
+              return next;
+            });
+          }
+
+          if (!receivedAny) {
+            throw new Error('The assistant returned an empty response.');
+          }
+
+          lastError = null;
+          break;
+        } catch (err) {
+          if (err.name === 'AbortError') {
+            lastError = null; // user-initiated Stop, not a failure
+            break;
+          }
+          lastError = err;
+          if (receivedAny || attempt === MAX_SEND_ATTEMPTS) break;
+          await new Promise((resolve) => setTimeout(resolve, RETRY_DELAY_MS));
         }
-      } catch (err) {
-        if (err.name === 'AbortError') {
-          // User pressed Stop — keep whatever streamed in so far.
-        } else {
-          setError(err.message || 'Something went wrong. Please try again.');
-        }
-      } finally {
-        setLoading(false);
-        abortRef.current = null;
-        // Drop the placeholder if nothing ever streamed into it (error/abort before
-        // the first token), so we never leave a blank assistant bubble behind.
-        setMessages((prev) => {
-          const last = prev[prev.length - 1];
-          return last?.role === 'assistant' && last.content === '' ? prev.slice(0, -1) : prev;
-        });
       }
+
+      if (lastError) {
+        setError(lastError.message || 'Something went wrong. Please try again.');
+      }
+
+      setLoading(false);
+      abortRef.current = null;
+      // Drop the placeholder if nothing ever streamed into it (error/abort before
+      // the first token), so we never leave a blank assistant bubble behind.
+      setMessages((prev) => {
+        const last = prev[prev.length - 1];
+        return last?.role === 'assistant' && last.content === '' ? prev.slice(0, -1) : prev;
+      });
     },
     [loading, messages],
   );

@@ -1,14 +1,17 @@
-import { GoogleGenAI } from '@google/genai';
 import { SYSTEM_PROMPT } from '../../src/lib/chatContext.js';
 
-// Google's free tier covers this model generously. If Google retires this
-// model name later, the API error message will tell you the replacement.
-const MODEL = 'gemini-3.6-flash';
+// "-latest" alias so this never breaks when Google retires a dated model name —
+// it always resolves to Google's current recommended lite-flash model. Lite
+// models also carry a much higher free-tier daily quota than plain "flash",
+// which matters for a chatbot getting real, unpredictable visitor traffic.
+const MODEL = 'gemini-flash-lite-latest';
+const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:streamGenerateContent?alt=sse`;
 
 // Guardrails so a bad or abusive request can't run up the bill.
 const MAX_HISTORY = 12; // messages actually sent to the model
 const MAX_MESSAGES = 40; // messages accepted in one request
 const MAX_MESSAGE_CHARS = 2000; // per message
+const UPSTREAM_TIMEOUT_MS = 45_000; // stay well under Netlify's 60s function cap
 
 export default async (req) => {
   if (req.method !== 'POST') {
@@ -49,17 +52,20 @@ export default async (req) => {
     parts: [{ text: message.content }],
   }));
 
-  let modelStream;
+  let geminiRes;
   try {
-    const ai = new GoogleGenAI({ apiKey });
-    modelStream = await ai.models.generateContentStream({
-      model: MODEL,
-      contents,
-      config: {
-        systemInstruction: SYSTEM_PROMPT,
-        temperature: 0.6,
-        maxOutputTokens: 800,
+    geminiRes = await fetch(GEMINI_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-goog-api-key': apiKey,
       },
+      body: JSON.stringify({
+        contents,
+        systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+        generationConfig: { temperature: 0.6, maxOutputTokens: 800 },
+      }),
+      signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
     });
   } catch (err) {
     console.error('Gemini request failed:', err);
@@ -69,14 +75,46 @@ export default async (req) => {
     );
   }
 
-  // Relay the model's tokens to the browser as they arrive.
+  if (!geminiRes.ok || !geminiRes.body) {
+    const errText = await geminiRes.text().catch(() => '');
+    console.error('Gemini request failed:', geminiRes.status, errText);
+    return json(
+      { error: 'The assistant is having trouble right now. Please try again in a moment.' },
+      502,
+    );
+  }
+
+  // Gemini's SSE stream sends one "data: {...}" line per chunk. Parse those and
+  // re-emit just the text deltas as plain text — the client reads a plain stream.
   const encoder = new TextEncoder();
+  const decoder = new TextDecoder();
   const stream = new ReadableStream({
     async start(controller) {
+      const reader = geminiRes.body.getReader();
+      let buffer = '';
       try {
-        for await (const chunk of modelStream) {
-          const text = chunk.text;
-          if (text) controller.enqueue(encoder.encode(text));
+        for (;;) {
+          const { done, value } = await reader.read();
+          if (done) break;
+
+          buffer += decoder.decode(value, { stream: true });
+          const lines = buffer.split('\n');
+          buffer = lines.pop() ?? ''; // keep a trailing partial line for next read
+
+          for (const line of lines) {
+            const trimmed = line.trim();
+            if (!trimmed.startsWith('data:')) continue;
+            const payload = trimmed.slice(5).trim();
+            if (!payload || payload === '[DONE]') continue;
+
+            try {
+              const parsed = JSON.parse(payload);
+              const text = parsed?.candidates?.[0]?.content?.parts?.[0]?.text;
+              if (text) controller.enqueue(encoder.encode(text));
+            } catch {
+              // Malformed/partial SSE fragment — skip it, the stream will recover.
+            }
+          }
         }
       } catch (err) {
         console.error('Gemini stream ended early:', err);
