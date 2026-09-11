@@ -81,7 +81,9 @@ export default function Chatbot() {
       }
 
       const outgoing = [...messages, { role: 'user', content: trimmed }];
-      setMessages(outgoing);
+      // Add the assistant's placeholder up front (not inside the stream loop) so every
+      // chunk below can blindly append to "the last message" — no flag, no race.
+      setMessages([...outgoing, { role: 'assistant', content: '' }]);
       setInput('');
       setError(null);
       setLoading(true);
@@ -106,7 +108,7 @@ export default function Chatbot() {
 
         const reader = res.body.getReader();
         const decoder = new TextDecoder();
-        let assistantStarted = false;
+        let receivedAny = false;
 
         for (;;) {
           const { done, value } = await reader.read();
@@ -115,20 +117,16 @@ export default function Chatbot() {
           const chunk = decoder.decode(value, { stream: true });
           if (!chunk) continue;
 
+          receivedAny = true;
           setMessages((prev) => {
             const next = prev.slice();
-            if (!assistantStarted) {
-              next.push({ role: 'assistant', content: chunk });
-            } else {
-              const last = next[next.length - 1];
-              next[next.length - 1] = { ...last, content: last.content + chunk };
-            }
+            const last = next[next.length - 1];
+            next[next.length - 1] = { ...last, content: last.content + chunk };
             return next;
           });
-          assistantStarted = true;
         }
 
-        if (!assistantStarted) {
+        if (!receivedAny) {
           throw new Error('The assistant returned an empty response.');
         }
       } catch (err) {
@@ -140,6 +138,12 @@ export default function Chatbot() {
       } finally {
         setLoading(false);
         abortRef.current = null;
+        // Drop the placeholder if nothing ever streamed into it (error/abort before
+        // the first token), so we never leave a blank assistant bubble behind.
+        setMessages((prev) => {
+          const last = prev[prev.length - 1];
+          return last?.role === 'assistant' && last.content === '' ? prev.slice(0, -1) : prev;
+        });
       }
     },
     [loading, messages],
@@ -170,8 +174,6 @@ export default function Chatbot() {
     atBottomRef.current = true;
     inputRef.current?.focus();
   }
-
-  const waitingForFirstToken = loading && messages[messages.length - 1]?.role === 'user';
 
   const panelMotion = reduceMotion
     ? {}
@@ -228,28 +230,36 @@ export default function Chatbot() {
               onScroll={handleScroll}
               aria-live="polite"
             >
-              {messages.map((message, index) => (
-                <div key={index} className={`chatbot__msg chatbot__msg--${message.role}`}>
-                  {message.role === 'assistant' ? (
-                    <div className="chatbot__markdown">
-                      <ReactMarkdown components={MARKDOWN_COMPONENTS}>
-                        {message.content}
-                      </ReactMarkdown>
+              {messages.map((message, index) => {
+                // The assistant's placeholder renders as typing dots until its first token lands.
+                if (message.role === 'assistant' && message.content === '') {
+                  return (
+                    <div
+                      key={index}
+                      className="chatbot__msg chatbot__msg--assistant chatbot__msg--typing"
+                    >
+                      <span className="chatbot__sr-only">Assistant is typing…</span>
+                      <span aria-hidden="true" />
+                      <span aria-hidden="true" />
+                      <span aria-hidden="true" />
                     </div>
-                  ) : (
-                    message.content
-                  )}
-                </div>
-              ))}
+                  );
+                }
 
-              {waitingForFirstToken && (
-                <div className="chatbot__msg chatbot__msg--assistant chatbot__msg--typing">
-                  <span className="chatbot__sr-only">Assistant is typing…</span>
-                  <span aria-hidden="true" />
-                  <span aria-hidden="true" />
-                  <span aria-hidden="true" />
-                </div>
-              )}
+                return (
+                  <div key={index} className={`chatbot__msg chatbot__msg--${message.role}`}>
+                    {message.role === 'assistant' ? (
+                      <div className="chatbot__markdown">
+                        <ReactMarkdown components={MARKDOWN_COMPONENTS}>
+                          {message.content}
+                        </ReactMarkdown>
+                      </div>
+                    ) : (
+                      message.content
+                    )}
+                  </div>
+                );
+              })}
 
               {error && (
                 <p className="chatbot__error" role="alert">

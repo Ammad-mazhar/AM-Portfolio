@@ -1,9 +1,9 @@
 import { GoogleGenAI } from '@google/genai';
 import { SYSTEM_PROMPT } from '../../src/lib/chatContext.js';
 
-// Google's free tier covers this model generously. Swap the string to
-// "gemini-2.0-flash" if you ever hit a quota wall.
-const MODEL = 'gemini-2.5-flash';
+// Google's free tier covers this model generously. If Google retires this
+// model name later, the API error message will tell you the replacement.
+const MODEL = 'gemini-3.6-flash';
 
 // Guardrails so a bad or abusive request can't run up the bill.
 const MAX_HISTORY = 12; // messages actually sent to the model
