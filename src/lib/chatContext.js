@@ -39,6 +39,7 @@ ${contact.name} is a full stack developer based in Pakistan (works remotely), cu
 CONTACT
 Email: ${contact.email}
 Phone: ${contact.phone}
+WhatsApp: available via the WhatsApp button in the site footer
 GitHub: ${contact.github}
 LinkedIn: ${contact.linkedin}
 

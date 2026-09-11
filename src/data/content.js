@@ -5,6 +5,9 @@ export const contact = {
   phoneHref: '+923272569014',
   github: 'https://github.com/Ammad-mazhar',
   linkedin: 'https://www.linkedin.com/in/ammad-mazhar-3663bb348',
+  whatsapp:
+    'https://wa.me/923113048674?text=' +
+    encodeURIComponent("Hi Ammad, I found your portfolio and I'd like to talk about a project."),
 };
 
 // Lives in /public. Update the filename here if you replace the PDF.

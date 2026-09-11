@@ -25,6 +25,9 @@ export default function Footer() {
           <a className="btn" href={`tel:${contact.phoneHref}`}>
             {contact.phone}
           </a>
+          <a className="btn" href={contact.whatsapp} target="_blank" rel="noreferrer">
+            WhatsApp
+          </a>
           <a className="btn" href={contact.github} target="_blank" rel="noreferrer">
             GitHub
           </a>
