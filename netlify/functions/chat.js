@@ -1,4 +1,5 @@
 import { SYSTEM_PROMPT } from '../../src/lib/chatContext.js';
+import { LANGUAGE_NAMES } from '../../src/i18n/languages.js';
 
 // "-latest" alias so this never breaks when Google retires a dated model name —
 // it always resolves to Google's current recommended lite-flash model. Lite
@@ -52,6 +53,15 @@ export default async (req) => {
     parts: [{ text: message.content }],
   }));
 
+  // The portfolio's own knowledge base stays in English — Gemini translates
+  // it naturally when told which language to answer in, so no need to keep
+  // a translated copy of the facts themselves.
+  const languageName = LANGUAGE_NAMES[body?.language] ?? LANGUAGE_NAMES.en;
+  const systemInstruction =
+    languageName === LANGUAGE_NAMES.en
+      ? SYSTEM_PROMPT
+      : `${SYSTEM_PROMPT}\n\nRespond in ${languageName}, regardless of what language the visitor writes in — the rest of the site is currently displayed in ${languageName}. If a visitor explicitly asks you to switch languages, go ahead and do that instead.`;
+
   let geminiRes;
   try {
     geminiRes = await fetch(GEMINI_URL, {
@@ -62,7 +72,7 @@ export default async (req) => {
       },
       body: JSON.stringify({
         contents,
-        systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+        systemInstruction: { parts: [{ text: systemInstruction }] },
         generationConfig: { temperature: 0.6, maxOutputTokens: 800 },
       }),
       signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),

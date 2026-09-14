@@ -1,0 +1,96 @@
+.lang-switcher {
+  position: relative;
+}
+
+.lang-switcher__trigger {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.lang-switcher__trigger:hover,
+.lang-switcher__trigger[aria-expanded='true'] {
+  color: var(--text);
+  border-color: rgba(var(--accent-rgb), 0.5);
+  background: rgba(var(--accent-rgb), 0.06);
+}
+
+.lang-switcher__menu {
+  list-style: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 20;
+  min-width: 150px;
+  margin: 0;
+  padding: 6px;
+  background: var(--panel-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.5);
+}
+
+.lang-switcher__option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.lang-switcher__option:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.lang-switcher__option.is-active {
+  color: var(--accent);
+  background: rgba(var(--accent-rgb), 0.08);
+}
+
+.lang-switcher__code {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  width: 24px;
+  flex-shrink: 0;
+}
+
+.lang-switcher__name {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 760px) {
+  .nav__links .lang-switcher {
+    width: 100%;
+    padding: 14px 24px;
+  }
+
+  .nav__links .lang-switcher__trigger {
+    width: auto;
+  }
+
+  .nav__links .lang-switcher__menu {
+    position: static;
+    margin-top: 10px;
+    box-shadow: none;
+    width: 100%;
+  }
+}

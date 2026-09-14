@@ -2,22 +2,9 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { MessageSquare, RotateCcw, Send, Square, X } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import { useI18n } from '../i18n/useI18n.js';
 import { EASE_OUT_EXPO } from '../lib/utils.js';
 import './Chatbot.css';
-
-const GREETING = {
-  role: 'assistant',
-  content:
-    "Hey! I'm Ammad's AI Assistant. Ask me about his projects, skills, experience, tech stack, or the services he can build.",
-};
-
-const SUGGESTIONS = [
-  { label: 'View projects', prompt: 'What are his strongest projects?' },
-  { label: 'Tech stack', prompt: 'What technologies does Ammad use?' },
-  { label: 'CRM project', prompt: 'Tell me about the CRM project.' },
-  { label: 'React & backend', prompt: "What is his experience with React and back-end work?" },
-  { label: 'Availability', prompt: 'Is Ammad available for freelance work?' },
-];
 
 const ENDPOINT = '/.netlify/functions/chat';
 const MAX_MESSAGE_CHARS = 2000;
@@ -34,17 +21,35 @@ const MARKDOWN_COMPONENTS = {
 };
 
 export default function Chatbot() {
+  const { lang, t } = useI18n();
+  const greeting = { role: 'assistant', content: t.chatbot.greeting };
+
   const [open, setOpen] = useState(false);
-  const [messages, setMessages] = useState([GREETING]);
+  const [messages, setMessages] = useState([greeting]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [lastLang, setLastLang] = useState(lang);
 
   const reduceMotion = useReducedMotion();
   const listRef = useRef(null);
   const inputRef = useRef(null);
   const abortRef = useRef(null);
   const atBottomRef = useRef(true);
+
+  // Switching the site language mid-chat would leave stale-language UI strings
+  // and an assistant replying in the old language — start fresh instead. This
+  // adjusts state during render (React's sanctioned pattern for "reset on prop
+  // change") rather than in an effect, so there's no extra commit/flash.
+  if (lang !== lastLang) {
+    setLastLang(lang);
+    abortRef.current?.abort();
+    setMessages([greeting]);
+    setInput('');
+    setError(null);
+    setLoading(false);
+    atBottomRef.current = true;
+  }
 
   useEffect(() => {
     if (open) inputRef.current?.focus();
@@ -80,7 +85,7 @@ export default function Chatbot() {
       if (!trimmed || loading) return;
 
       if (trimmed.length > MAX_MESSAGE_CHARS) {
-        setError(`Please keep messages under ${MAX_MESSAGE_CHARS} characters.`);
+        setError(t.chatbot.charLimitError.replace('{n}', MAX_MESSAGE_CHARS));
         return;
       }
 
@@ -109,13 +114,13 @@ export default function Chatbot() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             // Drop the static greeting (index 0) — the model doesn't need it.
-            body: JSON.stringify({ messages: outgoing.slice(1) }),
+            body: JSON.stringify({ messages: outgoing.slice(1), language: lang }),
             signal: controller.signal,
           });
 
           if (!res.ok || !res.body) {
             const data = await res.json().catch(() => ({}));
-            throw new Error(data.error || `Request failed (${res.status})`);
+            throw new Error(data.error || t.chatbot.requestFailedError.replace('{status}', res.status));
           }
 
           const reader = res.body.getReader();
@@ -138,7 +143,7 @@ export default function Chatbot() {
           }
 
           if (!receivedAny) {
-            throw new Error('The assistant returned an empty response.');
+            throw new Error(t.chatbot.emptyResponseError);
           }
 
           lastError = null;
@@ -155,7 +160,7 @@ export default function Chatbot() {
       }
 
       if (lastError) {
-        setError(lastError.message || 'Something went wrong. Please try again.');
+        setError(lastError.message || t.chatbot.genericError);
       }
 
       setLoading(false);
@@ -167,7 +172,7 @@ export default function Chatbot() {
         return last?.role === 'assistant' && last.content === '' ? prev.slice(0, -1) : prev;
       });
     },
-    [loading, messages],
+    [loading, messages, lang, t],
   );
 
   function handleSubmit(event) {
@@ -188,7 +193,7 @@ export default function Chatbot() {
 
   function newConversation() {
     abortRef.current?.abort();
-    setMessages([GREETING]);
+    setMessages([{ role: 'assistant', content: t.chatbot.greeting }]);
     setInput('');
     setError(null);
     setLoading(false);
@@ -213,15 +218,15 @@ export default function Chatbot() {
             key="panel"
             className="chatbot__panel"
             role="dialog"
-            aria-label="Chat with Ammad's AI assistant"
+            aria-label={t.chatbot.dialogAriaLabel}
             {...panelMotion}
           >
             <header className="chatbot__header">
               <span className="chatbot__title">
                 <span className="chatbot__status-dot" aria-hidden="true" />
                 <span>
-                  Ammad&apos;s AI Assistant
-                  <span className="chatbot__status-text">Online • Portfolio trained</span>
+                  {t.chatbot.title}
+                  <span className="chatbot__status-text">{t.chatbot.statusText}</span>
                 </span>
               </span>
               <div className="chatbot__header-actions">
@@ -229,8 +234,8 @@ export default function Chatbot() {
                   type="button"
                   className="chatbot__icon-btn"
                   onClick={newConversation}
-                  aria-label="Start a new conversation"
-                  title="New conversation"
+                  aria-label={t.chatbot.newConversation}
+                  title={t.chatbot.newConversationTitle}
                 >
                   <RotateCcw aria-hidden="true" />
                 </button>
@@ -238,7 +243,7 @@ export default function Chatbot() {
                   type="button"
                   className="chatbot__icon-btn"
                   onClick={() => setOpen(false)}
-                  aria-label="Close chat"
+                  aria-label={t.chatbot.closeChat}
                 >
                   <X aria-hidden="true" />
                 </button>
@@ -259,7 +264,7 @@ export default function Chatbot() {
                       key={index}
                       className="chatbot__msg chatbot__msg--assistant chatbot__msg--typing"
                     >
-                      <span className="chatbot__sr-only">Assistant is typing…</span>
+                      <span className="chatbot__sr-only">{t.chatbot.typingLabel}</span>
                       <span aria-hidden="true" />
                       <span aria-hidden="true" />
                       <span aria-hidden="true" />
@@ -291,7 +296,7 @@ export default function Chatbot() {
 
             {messages.length === 1 && !loading && (
               <div className="chatbot__suggestions">
-                {SUGGESTIONS.map((item) => (
+                {t.chatbot.suggestions.map((item) => (
                   <button
                     key={item.label}
                     type="button"
@@ -309,7 +314,7 @@ export default function Chatbot() {
                 ref={inputRef}
                 className="chatbot__input"
                 rows={1}
-                placeholder="Ask about my skills, projects, or experience…"
+                placeholder={t.chatbot.placeholder}
                 value={input}
                 maxLength={MAX_MESSAGE_CHARS}
                 onChange={(event) => setInput(event.target.value)}
@@ -320,7 +325,7 @@ export default function Chatbot() {
                   type="button"
                   className="chatbot__icon-btn chatbot__send"
                   onClick={stopGeneration}
-                  aria-label="Stop generating"
+                  aria-label={t.chatbot.stopGenerating}
                 >
                   <Square aria-hidden="true" />
                 </button>
@@ -328,7 +333,7 @@ export default function Chatbot() {
                 <button
                   type="submit"
                   className="chatbot__icon-btn chatbot__send"
-                  aria-label="Send message"
+                  aria-label={t.chatbot.sendMessage}
                   disabled={!input.trim()}
                 >
                   <Send aria-hidden="true" />
@@ -343,7 +348,7 @@ export default function Chatbot() {
         type="button"
         className="chatbot__fab"
         onClick={() => setOpen((value) => !value)}
-        aria-label={open ? 'Close chat' : 'Ask my AI assistant'}
+        aria-label={open ? t.chatbot.closeChat : t.chatbot.openChat}
         aria-expanded={open}
       >
         {open ? <X aria-hidden="true" /> : <MessageSquare aria-hidden="true" />}

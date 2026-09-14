@@ -26,31 +26,34 @@ import {
   Webhook,
   Zap,
 } from 'lucide-react';
+import { useI18n } from '../i18n/useI18n.js';
 import { cn, EASE_OUT_EXPO } from '../lib/utils.js';
 import './Skills.css';
 
-const SKILLS = [
+// Icons + orbit order stay fixed in code; the display name/category text is
+// looked up per key from the current language's dictionary.
+const SKILL_KEYS = [
   // Ring 1 — core stack
-  { name: 'React', category: 'UI Library', icon: Atom },
-  { name: 'JavaScript', category: 'Language', icon: Braces },
-  { name: 'Vite', category: 'Build Tool', icon: Zap },
-  { name: 'HTML', category: 'Markup', icon: FileCode2 },
-  { name: 'CSS', category: 'Styling', icon: Palette },
+  { key: 'react', icon: Atom },
+  { key: 'javascript', icon: Braces },
+  { key: 'vite', icon: Zap },
+  { key: 'html', icon: FileCode2 },
+  { key: 'css', icon: Palette },
   // Ring 2 — backend & data
-  { name: 'Node.js', category: 'Runtime', icon: Server },
-  { name: 'Express', category: 'Web Framework', icon: Route },
-  { name: 'Laravel', category: 'PHP Framework', icon: Flame },
-  { name: 'PHP', category: 'Language', icon: FileCode2 },
-  { name: 'REST APIs', category: 'Integration', icon: Webhook },
-  { name: 'MySQL', category: 'Database', icon: Database },
+  { key: 'nodejs', icon: Server },
+  { key: 'express', icon: Route },
+  { key: 'laravel', icon: Flame },
+  { key: 'php', icon: FileCode2 },
+  { key: 'restApis', icon: Webhook },
+  { key: 'mysql', icon: Database },
   // Ring 3 — tooling & growth
-  { name: 'Git & GitHub', category: 'Version Control', icon: GitBranch },
-  { name: 'SEO', category: 'Growth', icon: Search },
-  { name: 'Keyword Research', category: 'Growth', icon: TextSearch },
-  { name: 'Google Analytics', category: 'Analytics', icon: TrendingUp },
-  { name: 'SEMrush', category: 'Analytics', icon: Radar },
-  { name: 'CRM Development', category: 'Business Systems', icon: Contact },
-  { name: 'AI Integration', category: 'Intelligence', icon: BrainCircuit },
+  { key: 'gitGithub', icon: GitBranch },
+  { key: 'seo', icon: Search },
+  { key: 'keywordResearch', icon: TextSearch },
+  { key: 'googleAnalytics', icon: TrendingUp },
+  { key: 'semrush', icon: Radar },
+  { key: 'crmDevelopment', icon: Contact },
+  { key: 'aiIntegration', icon: BrainCircuit },
 ];
 
 const RING_CONFIG = [
@@ -167,13 +170,13 @@ function OrbitRing({
       <motion.div className="skills__ring" style={{ rotate: rotation }}>
         {skills.map((skill, index) => (
           <OrbitNode
-            key={skill.name}
+            key={skill.key}
             skill={skill}
             angle={(360 / skills.length) * index}
             radius={radius}
             ringRotation={rotation}
-            isHovered={hoveredSkill === skill.name}
-            onHoverStart={() => onHoverStart(skill.name)}
+            isHovered={hoveredSkill === skill.key}
+            onHoverStart={() => onHoverStart(skill.key)}
             onHoverEnd={onHoverEnd}
           />
         ))}
@@ -183,8 +186,15 @@ function OrbitRing({
 }
 
 export default function Skills() {
+  const { t } = useI18n();
   const [containerRef, width] = useContainerWidth();
   const [hoveredSkill, setHoveredSkill] = useState(null);
+
+  const SKILLS = SKILL_KEYS.map(({ key, icon }) => ({
+    key,
+    icon,
+    ...t.skillsOrbit.items[key],
+  }));
 
   let offset = 0;
   const rings = RING_CONFIG.map((config) => {
@@ -197,12 +207,9 @@ export default function Skills() {
     <section id="skills" className="skills section">
       <div className="container">
         <div className="skills__head">
-          <span className="skills__eyebrow">Skills</span>
-          <h2 className="skills__title">A constellation, not a checklist.</h2>
-          <p className="skills__lede">
-            Hover any node for the detail — the stack spans frontend, backend, and the
-            SEO work that got me here.
-          </p>
+          <span className="skills__eyebrow">{t.skillsOrbit.eyebrow}</span>
+          <h2 className="skills__title">{t.skillsOrbit.title}</h2>
+          <p className="skills__lede">{t.skillsOrbit.lede}</p>
         </div>
 
         <motion.div

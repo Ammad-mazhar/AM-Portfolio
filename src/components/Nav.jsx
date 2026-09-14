@@ -1,23 +1,26 @@
 import { useState } from 'react';
+import { useI18n } from '../i18n/useI18n.js';
+import LanguageSwitcher from './LanguageSwitcher.jsx';
 import './Nav.css';
-
-const links = [
-  { href: '#skills', label: 'Skills' },
-  { href: '#about', label: 'About' },
-  { href: '#expertise', label: 'Expertise' },
-  { href: '#work', label: 'Work' },
-  { href: '#build-log', label: 'Build Log' },
-  { href: '#credentials', label: 'Credentials' },
-  { href: '#contact', label: 'Contact' },
-];
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const { t } = useI18n();
+
+  const links = [
+    { href: '#skills', label: t.nav.skills },
+    { href: '#about', label: t.nav.about },
+    { href: '#expertise', label: t.nav.expertise },
+    { href: '#work', label: t.nav.work },
+    { href: '#build-log', label: t.nav.buildLog },
+    { href: '#credentials', label: t.nav.credentials },
+    { href: '#contact', label: t.nav.contact },
+  ];
 
   return (
     <header className="nav">
       <div className="nav__inner container">
-        <a href="#top" className="nav__logo" aria-label="Ammad Mazhar — home">
+        <a href="#top" className="nav__logo" aria-label={t.nav.home}>
           <img src="/logo-mark.svg" alt="Ammad Mazhar" width="40" height="40" />
         </a>
 
@@ -26,7 +29,7 @@ export default function Nav() {
           className="nav__toggle"
           aria-expanded={open}
           aria-controls="nav-menu"
-          aria-label="Toggle navigation menu"
+          aria-label={t.nav.toggleMenu}
           onClick={() => setOpen((prev) => !prev)}
         >
           <span />
@@ -40,6 +43,7 @@ export default function Nav() {
               {link.label}
             </a>
           ))}
+          <LanguageSwitcher />
         </nav>
       </div>
     </header>

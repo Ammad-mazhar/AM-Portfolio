@@ -1,21 +1,24 @@
 import Reveal from './Reveal.jsx';
 import { contact, resumeUrl } from '../data/content.js';
+import { useI18n } from '../i18n/useI18n.js';
 import './Footer.css';
 
 export default function Footer() {
+  const { t } = useI18n();
+
   return (
     <footer id="contact" className="footer section">
       <div className="container footer__inner">
         <Reveal className="footer__stamp" aria-hidden="true">
-          Open to opportunities
+          {t.footer.stamp}
         </Reveal>
 
         <Reveal as="h2" className="footer__heading">
-          Let&apos;s build something.
+          {t.footer.heading}
         </Reveal>
 
         <Reveal as="p" className="footer__line">
-          Reach out for full-time roles, freelance work, or just to talk shop.
+          {t.footer.line}
         </Reveal>
 
         <Reveal className="footer__actions">
@@ -26,23 +29,23 @@ export default function Footer() {
             {contact.phone}
           </a>
           <a className="btn" href={contact.whatsapp} target="_blank" rel="noreferrer">
-            WhatsApp
+            {t.footer.actions.whatsapp}
           </a>
           <a className="btn" href={contact.github} target="_blank" rel="noreferrer">
-            GitHub
+            {t.footer.actions.github}
           </a>
           <a className="btn" href={contact.linkedin} target="_blank" rel="noreferrer">
-            LinkedIn
+            {t.footer.actions.linkedin}
           </a>
           <a className="btn" href={resumeUrl} download>
-            Download CV
+            {t.footer.actions.downloadCV}
           </a>
         </Reveal>
 
         <p className="footer__meta">
           <span>© {new Date().getFullYear()} Ammad Mazhar</span>
           <span className="footer__meta-divider">·</span>
-          <span>Built with React + Vite</span>
+          <span>{t.footer.builtWith}</span>
         </p>
       </div>
     </footer>

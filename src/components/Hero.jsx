@@ -1,15 +1,12 @@
 import Reveal from './Reveal.jsx';
 import { contact, resumeUrl } from '../data/content.js';
+import { useI18n } from '../i18n/useI18n.js';
 import './Hero.css';
 
-const titleBlock = [
-  { label: 'Role', value: 'Full Stack Developer' },
-  { label: 'Stack', value: 'React · Express · Laravel' },
-  { label: 'Based in', value: 'Pakistan (Remote)' },
-  { label: 'Status', value: 'Open to opportunities' },
-];
-
 export default function Hero() {
+  const { t } = useI18n();
+  const titleBlock = [t.hero.titleBlock.role, t.hero.titleBlock.stack, t.hero.titleBlock.basedIn, t.hero.titleBlock.status];
+
   return (
     <section id="top" className="hero section">
       <div className="container">
@@ -17,7 +14,7 @@ export default function Hero() {
           <div className="hero__content">
             <Reveal className="hero__eyebrow">
               <span className="hero__dot" aria-hidden="true" />
-              Available for full-time &amp; freelance work
+              {t.hero.eyebrow}
             </Reveal>
 
             <Reveal as="h1" className="hero__title">
@@ -25,48 +22,40 @@ export default function Hero() {
             </Reveal>
 
             <Reveal as="p" className="hero__subtitle">
-              Full Stack Developer — React · Express · Laravel
+              {t.hero.titleBlock.role.value} — React · Express · Laravel
             </Reveal>
 
             <Reveal as="p" className="hero__intro">
-              I build and ship full stack products — from React interfaces down to the Express
-              and Laravel APIs behind them. Currently completing a Software Engineering diploma
-              at Aptech while working hands-on with real client and freelance projects.
+              {t.hero.intro}
             </Reveal>
 
             <Reveal className="hero__actions">
               <a className="btn btn--primary" href="#work">
-                View Work
+                {t.hero.actions.viewWork}
               </a>
               <a className="btn" href={resumeUrl} download>
-                Download CV
+                {t.hero.actions.downloadCV}
               </a>
               <a className="btn" href={contact.github} target="_blank" rel="noreferrer">
-                GitHub
+                {t.hero.actions.github}
               </a>
               <a className="btn" href={contact.linkedin} target="_blank" rel="noreferrer">
-                LinkedIn
+                {t.hero.actions.linkedin}
               </a>
               <a className="btn" href={`mailto:${contact.email}`}>
-                Email
+                {t.hero.actions.email}
               </a>
             </Reveal>
           </div>
 
           <Reveal className="hero__portrait">
-            <img
-              src="/1.jpeg"
-              alt="Ammad Mazhar"
-              width="1024"
-              height="1280"
-              loading="eager"
-            />
+            <img src="/1.jpeg" alt="Ammad Mazhar" width="1024" height="1280" loading="eager" />
           </Reveal>
         </div>
 
         <Reveal className="hero__titleblock">
-          {titleBlock.map((item) => (
-            <div className="hero__titleblock-cell" key={item.label}>
+          {titleBlock.map((item, index) => (
+            <div className="hero__titleblock-cell" key={index}>
               <span className="hero__titleblock-label">{item.label}</span>
               <span className="hero__titleblock-value">{item.value}</span>
             </div>
