@@ -12,9 +12,9 @@ export default {
   },
 
   hero: {
-    eyebrow: 'Beschikbaar voor vast werk & freelanceprojecten',
+    eyebrow: 'Open voor vaste functies & freelanceprojecten',
     intro:
-      "Ik bouw en lever full-stack producten — van React-interfaces tot de Express- en Laravel-API's erachter. Ik rond momenteel een diploma Software Engineering af bij Aptech, terwijl ik praktijkervaring opdoe met echte klant- en freelanceprojecten.",
+      "Ik bouw en lever full-stack producten — van React-interfaces tot de Express- en Laravel-API's die daarachter zitten. Op dit moment rond ik mijn diploma Software Engineering af bij Aptech, en daarnaast doe ik praktijkervaring op met echte klant- en freelanceprojecten.",
     actions: {
       viewWork: 'Bekijk projecten',
       downloadCV: 'Cv downloaden',
@@ -33,7 +33,7 @@ export default {
   skillsOrbit: {
     eyebrow: 'Skills',
     title: 'Een sterrenbeeld, geen checklist.',
-    lede: 'Beweeg over een node voor details — de stack loopt van frontend en backend tot het SEO-werk dat me hier bracht.',
+    lede: 'Beweeg met je muis over een node voor meer details — de stack loopt van frontend en backend tot het SEO-werk dat me hier heeft gebracht.',
     items: {
       react: { name: 'React', category: 'UI-bibliotheek' },
       javascript: { name: 'JavaScript', category: 'Taal' },
@@ -59,20 +59,20 @@ export default {
   about: {
     sectionTitle: 'Over mij',
     paragraphs: [
-      'Ik ben een full-stack developer in opleiding en rond momenteel een 3-jarig diploma Software Engineering af bij Aptech, terwijl ik daarnaast echte klant- en freelanceprojecten uitvoer. Het meeste wat ik weet, komt van dingen bouwen die ook echt voor iemand anders moeten draaien — niet alleen uit de lesstof.',
+      'Ik ben full-stack developer in opleiding en rond momenteel mijn 3-jarige diploma Software Engineering af bij Aptech, terwijl ik daarnaast aan echte klant- en freelanceprojecten werk. Het meeste wat ik weet, heb ik niet uit de lesstof, maar door dingen te bouwen die ook echt voor iemand anders moesten werken.',
       'Mijn frontendfocus ligt op React.js met Vite — snelle, component-gedreven interfaces met state, routing en responsieve layouts waar je snel op kunt itereren. Op de backend bouw ik mijn kennis van Express.js en PHP/Laravel verder uit, waarbij ik de REST-endpoints, authenticatie en dataverwerking opzet die achter de UI zitten.',
-      "In een gemiddelde week beweeg ik me door de hele stack — ik bouw React-componenten en state, en duik daarna in Express of Laravel om MySQL-schema's en de bijbehorende CRUD-flows te ontwerpen. Het hele project blijft onder versiebeheer met Git en GitHub, en ik probeer branches en commits netjes genoeg te houden zodat iemand anders het werk kan overnemen.",
+      "In een gemiddelde week werk ik me door de hele stack heen — ik bouw React-componenten en state, en duik daarna in Express of Laravel om MySQL-schema's en de bijbehorende CRUD-flows te ontwerpen. Het hele project blijft onder versiebeheer met Git en GitHub, en ik zorg dat branches en commits netjes genoeg zijn zodat iemand anders het werk zo kan overnemen.",
       'Voordat ik ging ontwikkelen, deed ik praktisch SEO-werk — on-page- en off-page-optimalisatie, zoekwoordenonderzoek en verkeersanalyse met Google Analytics en SEMrush. Die achtergrond bepaalt nog steeds hoe ik bouw: semantische opmaak, aandacht voor performance en paginastructuur, en de gewoonte om te meten wat er echt gebeurt in plaats van te gokken.',
       'Mijn belangrijkste project op dit moment is Custom Field Pros, een CRM-applicatie die end-to-end field-service-operaties beheert — een React- en Vite-frontend met een Express-API erachter. Daarnaast onderhoud ik een productiesite voor Aero Tech Solution Inc. die al meer dan een jaar live staat, waarbij ik zowel frontend- als backendwerk lever om features en fixes te leveren voor een vaste klant.',
       'Ook neem ik freelance website- en SEO-opdrachten aan — ik bouw en deploy bedrijfswebsites en verzorg vervolgens de on-page- en off-page-strategie en volg de prestaties op met Google Analytics en SEMrush, zodat de site na de lancering blijft groeien.',
-      'Een paar dingen waar ik trots op ben: Project of the Month in februari 2025, een top-10-plek bij de Contest Azam-competitie en de titel „AI Champ" in 2025 voor mijn AI-beoordelingen en -projecten. Ik heb ook meegedaan aan de Techwiz Global IT Competition, Techon en de Developer Super League, en heb een A2-certificaat Engels.',
+      'Waar ik trots op ben: Project of the Month in februari 2025, een top-10-notering bij de Contest Azam-competitie en de titel „AI Champ" in 2025 voor mijn AI-beoordelingen en -projecten. Daarnaast heb ik meegedaan aan de Techwiz Global IT Competition, Techon en de Developer Super League, en heb ik een A2-certificaat Engels.',
       'Ik sta momenteel open voor vaste functies en freelanceprojecten — het liefst full-stack werk waarbij ik een feature van interface tot API kan bezitten en kan blijven leren van mensen die al meer hebben opgeleverd dan ik.',
     ],
   },
 
   expertise: {
     sectionTitle: 'Expertise',
-    lede: 'Eén aanvraag, vier lagen. Dit gebruik ik op elke laag van de stack — van de interface die een gebruiker aanraakt tot het groeiwerk dat hen daar brengt.',
+    lede: 'Eén aanvraag, vier lagen. Dat is wat ik op elke laag van de stack inzet — van de interface die een gebruiker aanraakt tot het groeiwerk dat hen daar uiteindelijk brengt.',
     items: {
       interface: {
         node: 'Client',
@@ -96,7 +96,7 @@ export default {
       growth: {
         node: 'Groei',
         title: 'Groei & SEO',
-        blurb: 'On-/off-page en technische SEO, zoekwoordenonderzoek en analyses om te laten groeien wat wordt opgeleverd.',
+        blurb: 'On- en off-page SEO en technische SEO, zoekwoordenonderzoek en analyses, zodat wat wordt opgeleverd ook echt groeit.',
         note: 'Eerdere focus',
       },
     },
@@ -138,11 +138,11 @@ export default {
       '01': { description: 'Een CRM-applicatie die end-to-end field-service-operaties beheert.' },
       '02': { description: 'Servicewebsite voor een bedrijf in verwarming, airco en apparatuurreparatie aan huis.' },
       '03': { description: 'Vaste klantsite, al meer dan een jaar live, met volledig full-stack onderhoud.' },
-      '04': { description: 'Next.js e-commerce webshop, live op een eigen domein.' },
+      '04': { description: 'Next.js webshop, live op een eigen domein.' },
       '05': {
-        description: 'Marketingsite voor een commerciële hoofdaannemer, gebouwd en gepubliceerd voor de klant.',
+        description: 'Marketingsite voor een commerciële hoofdaannemer, gebouwd en gepubliceerd in opdracht van de klant.',
       },
-      '06': { description: 'Bedrijfswebsite voor een industrieel technisch en bouwbedrijf.' },
+      '06': { description: 'Bedrijfssite voor een bedrijf in industriële techniek en bouw.' },
       '07': { description: 'Productwebsite voor een merk in professionele barbier- en verzorgingstools.' },
       '08': { description: 'Boekingsgerichte website voor een apparatuurreparatie- en woningonderhoudsdienst.' },
     },
@@ -204,7 +204,7 @@ export default {
   footer: {
     stamp: 'Open voor nieuwe kansen',
     heading: 'Laten we iets bouwen.',
-    line: 'Neem contact op voor vaste functies, freelancewerk, of gewoon om te sparren.',
+    line: 'Neem contact op voor een vaste functie, freelanceopdrachten, of gewoon om even te sparren.',
     actions: {
       whatsapp: 'WhatsApp',
       github: 'GitHub',

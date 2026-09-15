@@ -12,9 +12,9 @@ export default {
   },
 
   hero: {
-    eyebrow: 'Tilgængelig for fastansættelse & freelanceopgaver',
+    eyebrow: 'Åben for fastansættelse & freelanceopgaver',
     intro:
-      "Jeg bygger og leverer full stack-produkter — fra React-grænseflader ned til Express- og Laravel-API'erne bag dem. Er i gang med at færdiggøre et diplom i Software Engineering hos Aptech, mens jeg arbejder praktisk med rigtige kunde- og freelanceprojekter.",
+      "Jeg bygger og leverer full stack-produkter — fra React-grænseflader ned til Express- og Laravel-API'erne bag dem. Lige nu er jeg ved at færdiggøre et diplom i Software Engineering hos Aptech, samtidig med at jeg arbejder praktisk med rigtige kunde- og freelanceprojekter.",
     actions: {
       viewWork: 'Se projekter',
       downloadCV: 'Download CV',
@@ -33,7 +33,7 @@ export default {
   skillsOrbit: {
     eyebrow: 'Skills',
     title: 'En stjernekonstellation, ikke en tjekliste.',
-    lede: 'Hold musen over en node for detaljer — stacken spænder fra frontend og backend til det SEO-arbejde, der bragte mig hertil.',
+    lede: 'Hold musen over en node for flere detaljer — stacken spænder fra frontend og backend til det SEO-arbejde, der bragte mig hertil.',
     items: {
       react: { name: 'React', category: 'UI-bibliotek' },
       javascript: { name: 'JavaScript', category: 'Sprog' },
@@ -59,13 +59,13 @@ export default {
   about: {
     sectionTitle: 'Om mig',
     paragraphs: [
-      'Jeg er en full stack-udvikler under oplæring og er ved at færdiggøre et 3-årigt diplom i Software Engineering hos Aptech, mens jeg sideløbende leverer rigtige kunde- og freelanceprojekter. Det meste af det, jeg kan, kommer fra at bygge ting, der reelt skal køre for andre — ikke kun fra undervisningen.',
+      'Jeg er full stack-udvikler under oplæring og er ved at færdiggøre mit 3-årige diplom i Software Engineering hos Aptech, mens jeg sideløbende arbejder på rigtige kunde- og freelanceprojekter. Det meste af det, jeg kan, har jeg ikke lært i undervisningen, men ved at bygge ting, der rent faktisk skulle fungere for andre.',
       'Mit frontend-fokus er React.js med Vite — hurtige, komponentbaserede grænseflader med state, routing og responsive layouts, der er nemme at iterere hurtigt på. På backend udbygger jeg mine færdigheder med Express.js og PHP/Laravel, hvor jeg sætter REST-endpoints, autentificering og databehandling op bag brugerfladen.',
-      'I en typisk uge bevæger jeg mig gennem hele stacken — jeg bygger React-komponenter og state og skifter derefter til Express eller Laravel for at designe MySQL-skemaer og de tilhørende CRUD-flows. Hele projektet holdes under versionsstyring med Git og GitHub, og jeg forsøger at holde branches og commits rene nok til, at andre kan overtage arbejdet.',
+      'I en typisk uge arbejder jeg mig gennem hele stacken — jeg bygger React-komponenter og state og skifter derefter til Express eller Laravel for at designe MySQL-skemaer og de tilhørende CRUD-flows. Hele projektet holdes under versionsstyring med Git og GitHub, og jeg sørger for, at branches og commits er rene nok til, at andre nemt kan overtage arbejdet.',
       'Før udvikling arbejdede jeg med praktisk SEO — on-page- og off-page-optimering, søgeordsanalyse og trafikanalyse med Google Analytics og SEMrush. Den baggrund præger stadig, hvordan jeg bygger: semantisk opmærkning, blik for performance og sidestruktur, og en vane med at måle, hvad der reelt sker, i stedet for at gætte.',
       'Mit hovedprojekt lige nu er Custom Field Pros, en CRM-applikation bygget til at styre feltservice-opgaver fra ende til anden — en React- og Vite-frontend understøttet af et Express-API. Ved siden af vedligeholder jeg en produktionsside for Aero Tech Solution Inc., som har været live i over et år, hvor jeg arbejder på tværs af frontend og backend for at levere features og rettelser til en langvarig kunde.',
       'Jeg påtager mig også freelance website- og SEO-opgaver — jeg bygger og udgiver virksomhedssider og står derefter for on-page- og off-page-strategien samt performance-tracking med Google Analytics og SEMrush, så siden bliver ved med at vokse efter lancering.',
-      'Nogle ting, jeg er stolt af undervejs: Project of the Month i februar 2025, en top 10-placering i Contest Azam-konkurrencen og udmærkelsen „AI Champ" i 2025 for mine AI-vurderinger og -projekter. Jeg har også deltaget i Techwiz Global IT Competition, Techon og Developer Super League, og har et A2-engelskcertifikat.',
+      'Det, jeg er særligt stolt af undervejs, er: Project of the Month i februar 2025, en top 10-placering i Contest Azam-konkurrencen og udmærkelsen „AI Champ" i 2025 for mine AI-vurderinger og -projekter. Derudover har jeg deltaget i Techwiz Global IT Competition, Techon og Developer Super League, og har et A2-engelskcertifikat.',
       "Jeg er i øjeblikket åben for fastansættelser og freelanceprojekter — helst full stack-arbejde, hvor jeg kan eje en feature fra grænsefladen ned til API'et og fortsætte med at lære af folk, der har leveret mere, end jeg har.",
     ],
   },
@@ -95,7 +95,7 @@ export default {
       growth: {
         node: 'Vækst',
         title: 'Vækst & SEO',
-        blurb: 'On-/off-page og teknisk SEO, søgeordsanalyse og analyser for at få det leverede til at vokse.',
+        blurb: 'On- og off-page samt teknisk SEO, søgeordsanalyse og analyser, så det, der bliver leveret, rent faktisk vokser.',
         note: 'Tidligere fokus',
       },
     },
@@ -137,11 +137,11 @@ export default {
       '01': { description: 'En CRM-applikation bygget til at styre feltservice-opgaver fra ende til anden.' },
       '02': { description: 'Servicewebsite for en virksomhed inden for varme, køling og reparation af husholdningsapparater.' },
       '03': { description: 'Langvarig kundeside, live i over et år, med fuld full stack-vedligeholdelse.' },
-      '04': { description: 'Next.js e-handelsbutik, live på eget domæne.' },
+      '04': { description: 'Next.js-webshop, live på eget domæne.' },
       '05': {
-        description: 'Marketingside for en kommerciel hovedentreprenør, bygget og udgivet for kunden.',
+        description: 'Marketingside for en kommerciel hovedentreprenør, bygget og udgivet efter kundens opgave.',
       },
-      '06': { description: 'Virksomhedsside for en industriteknik- og byggevirksomhed.' },
+      '06': { description: 'Virksomhedsside for en virksomhed inden for industriteknik og byggeri.' },
       '07': { description: 'Produktside for et mærke inden for professionelle barber- og plejeprodukter.' },
       '08': { description: 'Bookingfokuseret side for en service inden for apparatreparation og boligvedligeholdelse.' },
     },
@@ -203,7 +203,7 @@ export default {
   footer: {
     stamp: 'Åben for muligheder',
     heading: 'Lad os bygge noget.',
-    line: 'Skriv til mig om fastansættelser, freelanceopgaver, eller bare for at snakke fag.',
+    line: 'Skriv endelig, hvis du er interesseret i fastansættelse, freelanceopgaver, eller bare vil snakke fag.',
     actions: {
       whatsapp: 'WhatsApp',
       github: 'GitHub',
