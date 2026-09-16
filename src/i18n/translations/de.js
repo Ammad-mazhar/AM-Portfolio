@@ -53,6 +53,20 @@ export default {
       semrush: { name: 'SEMrush', category: 'Analyse' },
       crmDevelopment: { name: 'CRM-Entwicklung', category: 'Business-Systeme' },
       aiIntegration: { name: 'KI-Integration', category: 'Intelligenz' },
+      claude: { name: 'Claude', category: 'KI-Coding-Assistent' },
+      cursor: { name: 'Cursor', category: 'KI-Code-Editor' },
+      chatgpt: { name: 'ChatGPT', category: 'KI-Assistent' },
+    },
+    groups: {
+      core: 'Kern-Stack',
+      backend: 'Backend & Daten',
+      tooling: 'Tooling, Wachstum & KI',
+      soft: 'Soft Skills',
+    },
+    softSkills: {
+      problemSolving: 'Problemlösung',
+      collaboration: 'Zusammenarbeit',
+      timeManagement: 'Zeitmanagement',
     },
   },
 
@@ -61,7 +75,7 @@ export default {
     paragraphs: [
       'Ich bin Full-Stack-Entwickler in Ausbildung und schließe derzeit mein 3-jähriges Diplom in Software Engineering bei Aptech ab – parallel dazu arbeite ich an echten Kunden- und Freelance-Projekten. Das meiste, was ich kann, habe ich mir nicht im Unterricht angeeignet, sondern an Projekten, die tatsächlich für jemand anderen funktionieren mussten.',
       'Mein Schwerpunkt im Frontend liegt auf React.js mit Vite — schnelle, komponentenbasierte Oberflächen mit State, Routing und responsiven Layouts, die sich unkompliziert weiterentwickeln lassen. Im Backend baue ich meine Kenntnisse in Express.js und PHP/Laravel aus: REST-Endpunkte, Authentifizierung und die Datenverarbeitung, die hinter der Oberfläche steckt.',
-      'In einer typischen Woche arbeite ich mich durch den gesamten Stack — ich baue React-Komponenten und State und wechsle dann zu Express oder Laravel, um MySQL-Schemas und die passenden CRUD-Abläufe zu entwerfen. Das ganze Projekt bleibt dabei unter Versionskontrolle mit Git und GitHub, und ich achte darauf, Branches und Commits so sauber zu halten, dass jemand anderes problemlos einsteigen könnte.',
+      'In einer typischen Woche arbeite ich mich durch den gesamten Stack — ich baue React-Komponenten und State und wechsle dann zu Express oder Laravel, um MySQL-Schemas und die passenden CRUD-Abläufe zu entwerfen. Das ganze Projekt bleibt dabei unter Versionskontrolle mit Git und GitHub, und ich achte darauf, Branches und Commits so sauber zu halten, dass jemand anderes problemlos einsteigen könnte. KI-gestützte Tools — Claude, Cursor und ChatGPT — gehören ebenfalls zu meinem täglichen Workflow: Sie beschleunigen Routinearbeit und Recherche, ersetzen aber nicht das eigentliche technische Urteilsvermögen.',
       'Bevor ich in die Entwicklung gewechselt bin, habe ich praktisch im SEO-Bereich gearbeitet — On-Page- und Off-Page-Optimierung, Keyword-Recherche und Traffic-Analyse mit Google Analytics und SEMrush. Diese Erfahrung prägt bis heute, wie ich baue: sauberes, semantisches Markup, ein Blick für Performance und Seitenstruktur sowie die Gewohnheit, Ergebnisse zu messen statt zu raten.',
       'Mein aktuelles Hauptprojekt ist Custom Field Pros, eine CRM-Anwendung für die durchgängige Verwaltung von Außendienst-Einsätzen — ein React- und Vite-Frontend mit einer Express-API im Hintergrund. Daneben betreue ich seit über einem Jahr die Produktionsseite von Aero Tech Solution Inc. und arbeite dort im Frontend wie im Backend, um Features und Fixes für einen langjährigen Kunden umzusetzen.',
       'Zusätzlich übernehme ich freiberufliche Website- und SEO-Projekte: Ich baue und veröffentliche Business-Websites und kümmere mich anschließend um die On-Page- und Off-Page-Strategie sowie das Performance-Tracking mit Google Analytics und SEMrush, damit die Seite auch nach dem Launch weiterwächst.',
@@ -90,7 +104,8 @@ export default {
       data: {
         node: 'Daten',
         title: 'Daten & Tooling',
-        blurb: 'Relationales Schema-Design, CRUD-Abläufe und Versionskontrolle, sauber gehalten über das gesamte Projekt hinweg.',
+        blurb:
+          'Relationales Schema-Design, CRUD-Abläufe und saubere Versionskontrolle — dazu ein KI-gestützter Workflow mit Claude, Cursor und ChatGPT, um schneller voranzukommen, ohne an Qualität zu sparen.',
         note: 'Sicher im Umgang',
       },
       growth: {

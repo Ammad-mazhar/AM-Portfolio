@@ -53,6 +53,20 @@ export default {
       semrush: { name: 'SEMrush', category: 'Analyse' },
       crmDevelopment: { name: 'CRM-ontwikkeling', category: 'Bedrijfssystemen' },
       aiIntegration: { name: 'AI-integratie', category: 'Intelligentie' },
+      claude: { name: 'Claude', category: 'AI-codeerassistent' },
+      cursor: { name: 'Cursor', category: 'AI-code-editor' },
+      chatgpt: { name: 'ChatGPT', category: 'AI-assistent' },
+    },
+    groups: {
+      core: 'Kernstack',
+      backend: 'Backend & data',
+      tooling: 'Tooling, groei & AI',
+      soft: 'Soft skills',
+    },
+    softSkills: {
+      problemSolving: 'Probleemoplossing',
+      collaboration: 'Samenwerking',
+      timeManagement: 'Timemanagement',
     },
   },
 
@@ -61,7 +75,7 @@ export default {
     paragraphs: [
       'Ik ben full-stack developer in opleiding en rond momenteel mijn 3-jarige diploma Software Engineering af bij Aptech, terwijl ik daarnaast aan echte klant- en freelanceprojecten werk. Het meeste wat ik weet, heb ik niet uit de lesstof, maar door dingen te bouwen die ook echt voor iemand anders moesten werken.',
       'Mijn frontendfocus ligt op React.js met Vite — snelle, component-gedreven interfaces met state, routing en responsieve layouts waar je snel op kunt itereren. Op de backend bouw ik mijn kennis van Express.js en PHP/Laravel verder uit, waarbij ik de REST-endpoints, authenticatie en dataverwerking opzet die achter de UI zitten.',
-      "In een gemiddelde week werk ik me door de hele stack heen — ik bouw React-componenten en state, en duik daarna in Express of Laravel om MySQL-schema's en de bijbehorende CRUD-flows te ontwerpen. Het hele project blijft onder versiebeheer met Git en GitHub, en ik zorg dat branches en commits netjes genoeg zijn zodat iemand anders het werk zo kan overnemen.",
+      "In een gemiddelde week werk ik me door de hele stack heen — ik bouw React-componenten en state, en duik daarna in Express of Laravel om MySQL-schema's en de bijbehorende CRUD-flows te ontwerpen. Het hele project blijft onder versiebeheer met Git en GitHub, en ik zorg dat branches en commits netjes genoeg zijn zodat iemand anders het werk zo kan overnemen. AI-tools — Claude, Cursor en ChatGPT — maken ook deel uit van die dagelijkse workflow: ze versnellen routinewerk en research, maar vervangen niet het daadwerkelijke technische inzicht.",
       'Voordat ik ging ontwikkelen, deed ik praktisch SEO-werk — on-page- en off-page-optimalisatie, zoekwoordenonderzoek en verkeersanalyse met Google Analytics en SEMrush. Die achtergrond bepaalt nog steeds hoe ik bouw: semantische opmaak, aandacht voor performance en paginastructuur, en de gewoonte om te meten wat er echt gebeurt in plaats van te gokken.',
       'Mijn belangrijkste project op dit moment is Custom Field Pros, een CRM-applicatie die end-to-end field-service-operaties beheert — een React- en Vite-frontend met een Express-API erachter. Daarnaast onderhoud ik een productiesite voor Aero Tech Solution Inc. die al meer dan een jaar live staat, waarbij ik zowel frontend- als backendwerk lever om features en fixes te leveren voor een vaste klant.',
       'Ook neem ik freelance website- en SEO-opdrachten aan — ik bouw en deploy bedrijfswebsites en verzorg vervolgens de on-page- en off-page-strategie en volg de prestaties op met Google Analytics en SEMrush, zodat de site na de lancering blijft groeien.',
@@ -90,7 +104,8 @@ export default {
       data: {
         node: 'Data',
         title: 'Data & Tooling',
-        blurb: 'Relationeel schemaontwerp, CRUD-flows en versiebeheer, netjes gehouden door het hele project heen.',
+        blurb:
+          'Relationeel schemaontwerp, CRUD-flows en overzichtelijk versiebeheer — aangevuld met een AI-ondersteunde workflow met Claude, Cursor en ChatGPT om sneller te werken zonder in te leveren op kwaliteit.',
         note: 'Vertrouwd mee',
       },
       growth: {

@@ -8,6 +8,7 @@ import {
 } from 'framer-motion';
 import {
   Atom,
+  Bot,
   Braces,
   BrainCircuit,
   Contact,
@@ -21,8 +22,10 @@ import {
   Route,
   Search,
   Server,
+  Sparkles,
   TextSearch,
   TrendingUp,
+  Wand2,
   Webhook,
   Zap,
 } from 'lucide-react';
@@ -54,13 +57,25 @@ const SKILL_KEYS = [
   { key: 'semrush', icon: Radar },
   { key: 'crmDevelopment', icon: Contact },
   { key: 'aiIntegration', icon: BrainCircuit },
+  // AI-assisted development workflow — grouped into ring 3 alongside the
+  // other tooling/growth nodes rather than a new outer ring, so the radius
+  // stays unchanged and nothing risks overflowing on narrow phones.
+  { key: 'claude', icon: Sparkles },
+  { key: 'cursor', icon: Wand2 },
+  { key: 'chatgpt', icon: Bot },
 ];
 
 const RING_CONFIG = [
   { count: 5, radiusFraction: 0.16, duration: 42, direction: 1 },
   { count: 6, radiusFraction: 0.3, duration: 58, direction: -1 },
-  { count: 7, radiusFraction: 0.45, duration: 76, direction: 1 },
+  { count: 10, radiusFraction: 0.45, duration: 84, direction: 1 },
 ];
+
+// The orbit is the visual hook, but hover-only content doesn't work on touch
+// devices and is slow to scan — every skill also gets a plain, always-visible
+// list right below it, grouped the same way as the three rings above.
+const GROUP_KEYS = ['core', 'backend', 'tooling'];
+const SOFT_SKILL_KEYS = ['problemSolving', 'collaboration', 'timeManagement'];
 
 function useContainerWidth() {
   const ref = useRef(null);
@@ -196,11 +211,9 @@ export default function Skills() {
     ...t.skillsOrbit.items[key],
   }));
 
-  let offset = 0;
-  const rings = RING_CONFIG.map((config) => {
-    const ringSkills = SKILLS.slice(offset, offset + config.count);
-    offset += config.count;
-    return { ...config, skills: ringSkills };
+  const rings = RING_CONFIG.map((config, i) => {
+    const start = RING_CONFIG.slice(0, i).reduce((sum, c) => sum + c.count, 0);
+    return { ...config, skills: SKILLS.slice(start, start + config.count) };
   });
 
   return (
@@ -240,6 +253,28 @@ export default function Skills() {
               />
             ))}
         </motion.div>
+
+        <div className="skills__list">
+          {rings.map((ring, index) => (
+            <div className="skills__list-group" key={GROUP_KEYS[index]}>
+              <h3 className="skills__list-title">{t.skillsOrbit.groups[GROUP_KEYS[index]]}</h3>
+              <ul className="skills__list-tags">
+                {ring.skills.map((skill) => (
+                  <li key={skill.key}>{skill.name}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
+          <div className="skills__list-group">
+            <h3 className="skills__list-title">{t.skillsOrbit.groups.soft}</h3>
+            <ul className="skills__list-tags">
+              {SOFT_SKILL_KEYS.map((key) => (
+                <li key={key}>{t.skillsOrbit.softSkills[key]}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -18,6 +18,7 @@ export const skills = [
   { label: 'Backend', items: ['Express.js', 'PHP', 'Laravel'] },
   { label: 'SEO', items: ['On/Off-page SEO', 'Keyword Research', 'Google Analytics', 'SEMrush'] },
   { label: 'Tools', items: ['Git', 'GitHub', 'VS Code'] },
+  { label: 'AI-Assisted Development', items: ['Claude', 'Cursor', 'ChatGPT'] },
   { label: 'Soft Skills', items: ['Problem Solving', 'Collaboration', 'Time Management'] },
 ];
 
@@ -47,8 +48,8 @@ export const expertise = [
     node: 'Data',
     title: 'Data & Tooling',
     blurb:
-      'Relational schema design, CRUD flows, and version control kept clean across the whole project.',
-    stack: ['MySQL', 'Git', 'GitHub', 'VS Code'],
+      'Relational schema design, CRUD flows, and version control kept clean — plus an AI-assisted workflow with Claude, Cursor, and ChatGPT to move faster without cutting corners.',
+    stack: ['MySQL', 'Git', 'GitHub', 'VS Code', 'Claude', 'Cursor', 'ChatGPT'],
     level: 6,
     note: 'Comfortable',
   },

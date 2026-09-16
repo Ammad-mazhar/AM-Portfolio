@@ -56,6 +56,20 @@ export default {
       semrush: { name: 'SEMrush', category: 'Analytics' },
       crmDevelopment: { name: 'CRM Development', category: 'Business Systems' },
       aiIntegration: { name: 'AI Integration', category: 'Intelligence' },
+      claude: { name: 'Claude', category: 'AI Coding Assistant' },
+      cursor: { name: 'Cursor', category: 'AI Code Editor' },
+      chatgpt: { name: 'ChatGPT', category: 'AI Assistant' },
+    },
+    groups: {
+      core: 'Core Stack',
+      backend: 'Backend & Data',
+      tooling: 'Tooling, Growth & AI',
+      soft: 'Soft Skills',
+    },
+    softSkills: {
+      problemSolving: 'Problem Solving',
+      collaboration: 'Collaboration',
+      timeManagement: 'Time Management',
     },
   },
 
@@ -64,7 +78,7 @@ export default {
     paragraphs: [
       "I'm a full stack developer in training, currently completing a 3-year Software Engineering diploma at Aptech while shipping real client and freelance work on the side. Most of what I know comes from building things that actually have to run for someone else — not just coursework.",
       "My frontend focus is React.js with Vite — fast, component-driven interfaces with state, routing, and responsive layouts that stay quick to iterate on. On the backend, I'm building out my skills with Express.js and PHP/Laravel, wiring up the REST endpoints, authentication, and data handling that sit behind the UI.",
-      "On a given week I'm moving across the whole stack — building React components and state, then dropping into Express or Laravel to design MySQL schemas and the CRUD flows on top of them. The entire project stays under version control with Git and GitHub, and I try to keep branches and commits clean enough that someone else could pick the work up.",
+      "On a given week I'm moving across the whole stack — building React components and state, then dropping into Express or Laravel to design MySQL schemas and the CRUD flows on top of them. The entire project stays under version control with Git and GitHub, and I try to keep branches and commits clean enough that someone else could pick the work up. AI-assisted tools — Claude, Cursor, and ChatGPT — are part of that daily workflow too, speeding up boilerplate and research without replacing the actual engineering judgment.",
       'Before development, I worked in practical SEO — on-page and off-page optimization, keyword research, and traffic analysis with Google Analytics and SEMrush. That background still shapes how I build: semantic markup, an eye on performance and page structure, and a habit of measuring what actually ships instead of guessing.',
       'Right now my main project is Custom Field Pros, a CRM application built to manage field-service operations end to end — a React and Vite frontend backed by an Express API. Alongside it, I maintain a production site for Aero Tech Solution Inc. that has been live for over a year, working across frontend and backend to ship features and fixes for a long-term client.',
       'I also take on freelance website and SEO work — building and deploying business sites, then running the on-page and off-page strategy and tracking performance in Google Analytics and SEMrush so the site keeps growing after launch.',
@@ -94,7 +108,8 @@ export default {
       data: {
         node: 'Data',
         title: 'Data & Tooling',
-        blurb: 'Relational schema design, CRUD flows, and version control kept clean across the whole project.',
+        blurb:
+          'Relational schema design, CRUD flows, and version control kept clean — plus an AI-assisted workflow with Claude, Cursor, and ChatGPT to move faster without cutting corners.',
         note: 'Comfortable',
       },
       growth: {
