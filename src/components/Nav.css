@@ -16,15 +16,27 @@
   position: relative;
 }
 
+/* The logo is dark-on-light artwork (its navy is the same color as this bar),
+   so it sits on a light tile — unchanged from the source file. */
 .nav__logo {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  height: 42px;
+  padding: 0 10px;
+  border-radius: 10px;
+  background: var(--text);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 8px 20px -10px rgba(var(--accent-rgb), 0.5);
 }
 
 .nav__logo img {
   display: block;
-  height: 40px;
-  width: 40px;
+  height: 26px;
+  width: auto;
+  /* the artwork has empty space above the mark but none below — nudge it to optical center */
+  position: relative;
+  top: -1.5px;
 }
 
 .nav__links {

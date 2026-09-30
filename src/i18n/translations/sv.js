@@ -145,20 +145,26 @@ export default {
       'E-commerce': 'E-handel',
       'HTML/CSS/JS': 'HTML/CSS/JS',
       Deployed: 'Driftsatt',
+      'Ordering System': 'Beställningssystem',
+      PWA: 'PWA',
     },
     viewProject: 'Visa projekt',
     noLiveLink: 'Ingen live-länk',
     items: {
       '01': { description: 'En CRM-applikation byggd för att hantera fältserviceverksamhet från början till slut.' },
-      '02': { description: 'Servicewebbplats för ett företag inom värme, kyla och reparation av vitvaror.' },
+      '02': { description: 'Next.js-webbutik, live på en egen domän.' },
       '03': { description: 'Långsiktig kundsajt, live i över ett år, med fullständigt full stack-underhåll.' },
-      '04': { description: 'Next.js-webbutik, live på en egen domän.' },
-      '05': {
+      '04': {
+        description:
+          'Full stack-beställningsplattform och installerbar app för en steakhouse — onlinebeställning, varukorg, bordsbokningar och kundkonton.',
+      },
+      '05': { description: 'Servicewebbplats för ett företag inom värme, kyla och reparation av vitvaror.' },
+      '06': {
         description: 'Marknadsföringssajt för en kommersiell generalentreprenör, byggd och publicerad på kundens uppdrag.',
       },
-      '06': { description: 'Företagssajt för ett bolag inom industriteknik och byggverksamhet.' },
-      '07': { description: 'Produktsajt för ett varumärke inom professionella barberar- och skötselverktyg.' },
-      '08': { description: 'Bokningsfokuserad sajt för en tjänst inom vitvarureparation och fastighetsunderhåll.' },
+      '07': { description: 'Företagssajt för ett bolag inom industriteknik och byggverksamhet.' },
+      '08': { description: 'Produktsajt för ett varumärke inom professionella barberar- och skötselverktyg.' },
+      '09': { description: 'Bokningsfokuserad sajt för en tjänst inom vitvarureparation och fastighetsunderhåll.' },
     },
   },
 

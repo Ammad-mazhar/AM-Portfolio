@@ -146,20 +146,26 @@ export default {
       'E-commerce': 'E-commerce',
       'HTML/CSS/JS': 'HTML/CSS/JS',
       Deployed: 'Live gezet',
+      'Ordering System': 'Bestelsysteem',
+      PWA: 'PWA',
     },
     viewProject: 'Bekijk project',
     noLiveLink: 'Geen live link',
     items: {
       '01': { description: 'Een CRM-applicatie die end-to-end field-service-operaties beheert.' },
-      '02': { description: 'Servicewebsite voor een bedrijf in verwarming, airco en apparatuurreparatie aan huis.' },
+      '02': { description: 'Next.js webshop, live op een eigen domein.' },
       '03': { description: 'Vaste klantsite, al meer dan een jaar live, met volledig full-stack onderhoud.' },
-      '04': { description: 'Next.js webshop, live op een eigen domein.' },
-      '05': {
+      '04': {
+        description:
+          'Full-stack bestelplatform en installeerbare app voor een steakhouse — online bestellen, winkelwagen, tafelreserveringen en klantaccounts.',
+      },
+      '05': { description: 'Servicewebsite voor een bedrijf in verwarming, airco en apparatuurreparatie aan huis.' },
+      '06': {
         description: 'Marketingsite voor een commerciële hoofdaannemer, gebouwd en gepubliceerd in opdracht van de klant.',
       },
-      '06': { description: 'Bedrijfssite voor een bedrijf in industriële techniek en bouw.' },
-      '07': { description: 'Productwebsite voor een merk in professionele barbier- en verzorgingstools.' },
-      '08': { description: 'Boekingsgerichte website voor een apparatuurreparatie- en woningonderhoudsdienst.' },
+      '07': { description: 'Bedrijfssite voor een bedrijf in industriële techniek en bouw.' },
+      '08': { description: 'Productwebsite voor een merk in professionele barbier- en verzorgingstools.' },
+      '09': { description: 'Boekingsgerichte website voor een apparatuurreparatie- en woningonderhoudsdienst.' },
     },
   },
 

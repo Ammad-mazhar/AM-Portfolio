@@ -145,20 +145,26 @@ export default {
       'E-commerce': 'E-handel',
       'HTML/CSS/JS': 'HTML/CSS/JS',
       Deployed: 'Udgivet',
+      'Ordering System': 'Bestillingssystem',
+      PWA: 'PWA',
     },
     viewProject: 'Se projekt',
     noLiveLink: 'Intet live-link',
     items: {
       '01': { description: 'En CRM-applikation bygget til at styre feltservice-opgaver fra ende til anden.' },
-      '02': { description: 'Servicewebsite for en virksomhed inden for varme, køling og reparation af husholdningsapparater.' },
+      '02': { description: 'Next.js-webshop, live på eget domæne.' },
       '03': { description: 'Langvarig kundeside, live i over et år, med fuld full stack-vedligeholdelse.' },
-      '04': { description: 'Next.js-webshop, live på eget domæne.' },
-      '05': {
+      '04': {
+        description:
+          'Full stack-bestillingsplatform og installerbar app til en steakhouse — online bestilling, indkøbskurv, bordreservationer og kundekonti.',
+      },
+      '05': { description: 'Servicewebsite for en virksomhed inden for varme, køling og reparation af husholdningsapparater.' },
+      '06': {
         description: 'Marketingside for en kommerciel hovedentreprenør, bygget og udgivet efter kundens opgave.',
       },
-      '06': { description: 'Virksomhedsside for en virksomhed inden for industriteknik og byggeri.' },
-      '07': { description: 'Produktside for et mærke inden for professionelle barber- og plejeprodukter.' },
-      '08': { description: 'Bookingfokuseret side for en service inden for apparatreparation og boligvedligeholdelse.' },
+      '07': { description: 'Virksomhedsside for en virksomhed inden for industriteknik og byggeri.' },
+      '08': { description: 'Produktside for et mærke inden for professionelle barber- og plejeprodukter.' },
+      '09': { description: 'Bookingfokuseret side for en service inden for apparatreparation og boligvedligeholdelse.' },
     },
   },
 

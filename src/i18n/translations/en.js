@@ -150,20 +150,26 @@ export default {
       'E-commerce': 'E-commerce',
       'HTML/CSS/JS': 'HTML/CSS/JS',
       Deployed: 'Deployed',
+      'Ordering System': 'Ordering System',
+      PWA: 'PWA',
     },
     viewProject: 'View project',
     noLiveLink: 'No live link',
     items: {
       '01': { description: 'A CRM application built to manage field service operations end to end.' },
-      '02': { description: 'Service website for a home HVAC and appliance repair company.' },
+      '02': { description: 'Next.js e-commerce storefront, live on a custom domain.' },
       '03': { description: 'Long-term client site, live for 1+ year, with full stack maintenance.' },
-      '04': { description: 'Next.js e-commerce storefront, live on a custom domain.' },
-      '05': {
+      '04': {
+        description:
+          'Full-stack ordering platform and installable app for a steakhouse — online ordering, cart, table reservations, and customer accounts.',
+      },
+      '05': { description: 'Service website for a home HVAC and appliance repair company.' },
+      '06': {
         description: 'Marketing site for a commercial general contractor, built and deployed for the client.',
       },
-      '06': { description: 'Corporate site for an industrial engineering and construction firm.' },
-      '07': { description: 'Product site for a professional grooming-tools brand.' },
-      '08': { description: 'Booking-focused site for an appliance repair and property maintenance service.' },
+      '07': { description: 'Corporate site for an industrial engineering and construction firm.' },
+      '08': { description: 'Product site for a professional grooming-tools brand.' },
+      '09': { description: 'Booking-focused site for an appliance repair and property maintenance service.' },
     },
   },
 

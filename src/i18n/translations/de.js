@@ -146,20 +146,26 @@ export default {
       'E-commerce': 'E-Commerce',
       'HTML/CSS/JS': 'HTML/CSS/JS',
       Deployed: 'Live geschaltet',
+      'Ordering System': 'Bestellsystem',
+      PWA: 'PWA',
     },
     viewProject: 'Projekt ansehen',
     noLiveLink: 'Kein Live-Link',
     items: {
       '01': { description: 'Eine CRM-Anwendung für die durchgängige Verwaltung von Außendienst-Einsätzen.' },
-      '02': { description: 'Service-Website für ein Unternehmen aus den Bereichen Heizung, Klimatechnik und Haushaltsgerätereparatur.' },
+      '02': { description: 'Next.js-Onlineshop, live auf einer eigenen Domain.' },
       '03': { description: 'Langjährige Kundenseite, seit über einem Jahr live, mit vollständiger Full-Stack-Betreuung.' },
-      '04': { description: 'Next.js-Onlineshop, live auf einer eigenen Domain.' },
-      '05': {
+      '04': {
+        description:
+          'Full-Stack-Bestellplattform und installierbare App für ein Steakhouse — Online-Bestellung, Warenkorb, Tischreservierungen und Kundenkonten.',
+      },
+      '05': { description: 'Service-Website für ein Unternehmen aus den Bereichen Heizung, Klimatechnik und Haushaltsgerätereparatur.' },
+      '06': {
         description: 'Marketing-Website für einen gewerblichen Generalunternehmer — gebaut und veröffentlicht im Kundenauftrag.',
       },
-      '06': { description: 'Unternehmenswebsite für eine Firma aus der Industrietechnik und dem Bauwesen.' },
-      '07': { description: 'Produktwebsite für eine Marke für professionelle Barber- und Grooming-Tools.' },
-      '08': { description: 'Buchungsorientierte Website für einen Gerätereparatur- und Hauswartungsservice.' },
+      '07': { description: 'Unternehmenswebsite für eine Firma aus der Industrietechnik und dem Bauwesen.' },
+      '08': { description: 'Produktwebsite für eine Marke für professionelle Barber- und Grooming-Tools.' },
+      '09': { description: 'Buchungsorientierte Website für einen Gerätereparatur- und Hauswartungsservice.' },
     },
   },
 
