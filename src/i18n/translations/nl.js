@@ -24,7 +24,7 @@ export default {
     },
     titleBlock: {
       role: { label: 'Functie', value: 'Full-Stack Developer' },
-      stack: { label: 'Stack', value: 'React · Express · Laravel' },
+      stack: { label: 'Stack', value: 'React · Next.js · Express · Laravel' },
       basedIn: { label: 'Locatie', value: 'Pakistan (Remote)' },
       status: { label: 'Status', value: 'Open voor nieuwe kansen' },
     },
@@ -73,7 +73,7 @@ export default {
   about: {
     sectionTitle: 'Over mij',
     paragraphs: [
-      'Ik ben full-stack developer in opleiding en rond momenteel mijn 3-jarige diploma Software Engineering af bij Aptech, terwijl ik daarnaast aan echte klant- en freelanceprojecten werk. Het meeste wat ik weet, heb ik niet uit de lesstof, maar door dingen te bouwen die ook echt voor iemand anders moesten werken.',
+      'Ik ben full-stack developer en rond momenteel mijn 3-jarige diploma Software Engineering af bij Aptech, terwijl ik daarnaast aan echte klant- en freelanceprojecten werk. Het meeste wat ik weet, heb ik niet uit de lesstof, maar door dingen te bouwen die ook echt voor iemand anders moesten werken.',
       'Mijn frontendfocus ligt op React.js met Vite — snelle, component-gedreven interfaces met state, routing en responsieve layouts waar je snel op kunt itereren. Op de backend bouw ik mijn kennis van Express.js en PHP/Laravel verder uit, waarbij ik de REST-endpoints, authenticatie en dataverwerking opzet die achter de UI zitten.',
       "In een gemiddelde week werk ik me door de hele stack heen — ik bouw React-componenten en state, en duik daarna in Express of Laravel om MySQL-schema's en de bijbehorende CRUD-flows te ontwerpen. Het hele project blijft onder versiebeheer met Git en GitHub, en ik zorg dat branches en commits netjes genoeg zijn zodat iemand anders het werk zo kan overnemen. AI-tools — Claude, Cursor en ChatGPT — maken ook deel uit van die dagelijkse workflow: ze versnellen routinewerk en research, maar vervangen niet het daadwerkelijke technische inzicht.",
       'Voordat ik ging ontwikkelen, deed ik praktisch SEO-werk — on-page- en off-page-optimalisatie, zoekwoordenonderzoek en verkeersanalyse met Google Analytics en SEMrush. Die achtergrond bepaalt nog steeds hoe ik bouw: semantische opmaak, aandacht voor performance en paginastructuur, en de gewoonte om te meten wat er echt gebeurt in plaats van te gokken.',
@@ -227,6 +227,7 @@ export default {
     heading: 'Laten we iets bouwen.',
     line: 'Neem contact op voor een vaste functie, freelanceopdrachten, of gewoon om even te sparren.',
     actions: {
+      call: 'Bellen',
       whatsapp: 'WhatsApp',
       github: 'GitHub',
       linkedin: 'LinkedIn',

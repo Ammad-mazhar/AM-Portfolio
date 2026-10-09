@@ -12,24 +12,24 @@ export default function Hero() {
       <div className="container">
         <div className="hero__inner">
           <div className="hero__content">
-            <Reveal className="hero__eyebrow">
+            <Reveal immediate className="hero__eyebrow">
               <span className="hero__dot" aria-hidden="true" />
               {t.hero.eyebrow}
             </Reveal>
 
-            <Reveal as="h1" className="hero__title">
+            <Reveal immediate as="h1" className="hero__title">
               Ammad Mazhar
             </Reveal>
 
-            <Reveal as="p" className="hero__subtitle">
-              {t.hero.titleBlock.role.value} — React · Express · Laravel
+            <Reveal immediate as="p" className="hero__subtitle">
+              {t.hero.titleBlock.role.value} — React · Next.js · Express · Laravel
             </Reveal>
 
-            <Reveal as="p" className="hero__intro">
+            <Reveal immediate as="p" className="hero__intro">
               {t.hero.intro}
             </Reveal>
 
-            <Reveal className="hero__actions">
+            <Reveal immediate className="hero__actions">
               <a className="btn btn--primary" href="#work">
                 {t.hero.actions.viewWork}
               </a>
@@ -48,12 +48,12 @@ export default function Hero() {
             </Reveal>
           </div>
 
-          <Reveal className="hero__portrait">
+          <Reveal immediate className="hero__portrait">
             <img src="/1.jpeg" alt="Ammad Mazhar" width="1024" height="1280" loading="eager" />
           </Reveal>
         </div>
 
-        <Reveal className="hero__titleblock">
+        <Reveal immediate className="hero__titleblock">
           {titleBlock.map((item, index) => (
             <div className="hero__titleblock-cell" key={index}>
               <span className="hero__titleblock-label">{item.label}</span>

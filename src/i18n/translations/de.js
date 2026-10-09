@@ -24,7 +24,7 @@ export default {
     },
     titleBlock: {
       role: { label: 'Rolle', value: 'Full-Stack-Entwickler' },
-      stack: { label: 'Stack', value: 'React · Express · Laravel' },
+      stack: { label: 'Stack', value: 'React · Next.js · Express · Laravel' },
       basedIn: { label: 'Standort', value: 'Pakistan (Remote)' },
       status: { label: 'Status', value: 'Offen für neue Möglichkeiten' },
     },
@@ -73,7 +73,7 @@ export default {
   about: {
     sectionTitle: 'Über mich',
     paragraphs: [
-      'Ich bin Full-Stack-Entwickler in Ausbildung und schließe derzeit mein 3-jähriges Diplom in Software Engineering bei Aptech ab – parallel dazu arbeite ich an echten Kunden- und Freelance-Projekten. Das meiste, was ich kann, habe ich mir nicht im Unterricht angeeignet, sondern an Projekten, die tatsächlich für jemand anderen funktionieren mussten.',
+      'Ich bin Full-Stack-Entwickler und schließe derzeit mein 3-jähriges Diplom in Software Engineering bei Aptech ab – parallel dazu arbeite ich an echten Kunden- und Freelance-Projekten. Das meiste, was ich kann, habe ich mir nicht im Unterricht angeeignet, sondern an Projekten, die tatsächlich für jemand anderen funktionieren mussten.',
       'Mein Schwerpunkt im Frontend liegt auf React.js mit Vite — schnelle, komponentenbasierte Oberflächen mit State, Routing und responsiven Layouts, die sich unkompliziert weiterentwickeln lassen. Im Backend baue ich meine Kenntnisse in Express.js und PHP/Laravel aus: REST-Endpunkte, Authentifizierung und die Datenverarbeitung, die hinter der Oberfläche steckt.',
       'In einer typischen Woche arbeite ich mich durch den gesamten Stack — ich baue React-Komponenten und State und wechsle dann zu Express oder Laravel, um MySQL-Schemas und die passenden CRUD-Abläufe zu entwerfen. Das ganze Projekt bleibt dabei unter Versionskontrolle mit Git und GitHub, und ich achte darauf, Branches und Commits so sauber zu halten, dass jemand anderes problemlos einsteigen könnte. KI-gestützte Tools — Claude, Cursor und ChatGPT — gehören ebenfalls zu meinem täglichen Workflow: Sie beschleunigen Routinearbeit und Recherche, ersetzen aber nicht das eigentliche technische Urteilsvermögen.',
       'Bevor ich in die Entwicklung gewechselt bin, habe ich praktisch im SEO-Bereich gearbeitet — On-Page- und Off-Page-Optimierung, Keyword-Recherche und Traffic-Analyse mit Google Analytics und SEMrush. Diese Erfahrung prägt bis heute, wie ich baue: sauberes, semantisches Markup, ein Blick für Performance und Seitenstruktur sowie die Gewohnheit, Ergebnisse zu messen statt zu raten.',
@@ -227,6 +227,7 @@ export default {
     heading: 'Lass uns etwas bauen.',
     line: 'Melden Sie sich für Festanstellungen, Freelance-Projekte oder einfach, um sich auszutauschen.',
     actions: {
+      call: 'Anrufen',
       whatsapp: 'WhatsApp',
       github: 'GitHub',
       linkedin: 'LinkedIn',

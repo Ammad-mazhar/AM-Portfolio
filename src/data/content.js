@@ -8,6 +8,7 @@ export const contact = {
   whatsapp:
     'https://wa.me/923113048674?text=' +
     encodeURIComponent("Hi Ammad, I found your portfolio and I'd like to talk about a project."),
+  whatsappDisplay: '+92 311 3048674',
 };
 
 // Lives in /public. Update the filename here if you replace the PDF.

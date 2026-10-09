@@ -26,10 +26,10 @@ export default function Footer() {
             {contact.email}
           </a>
           <a className="btn" href={`tel:${contact.phoneHref}`}>
-            {contact.phone}
+            {t.footer.actions.call} · {contact.phone}
           </a>
           <a className="btn" href={contact.whatsapp} target="_blank" rel="noreferrer">
-            {t.footer.actions.whatsapp}
+            {t.footer.actions.whatsapp} · {contact.whatsappDisplay}
           </a>
           <a className="btn" href={contact.github} target="_blank" rel="noreferrer">
             {t.footer.actions.github}

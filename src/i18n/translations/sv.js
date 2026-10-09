@@ -24,7 +24,7 @@ export default {
     },
     titleBlock: {
       role: { label: 'Roll', value: 'Full Stack-utvecklare' },
-      stack: { label: 'Stack', value: 'React · Express · Laravel' },
+      stack: { label: 'Stack', value: 'React · Next.js · Express · Laravel' },
       basedIn: { label: 'Baserad i', value: 'Pakistan (distans)' },
       status: { label: 'Status', value: 'Öppen för möjligheter' },
     },
@@ -73,7 +73,7 @@ export default {
   about: {
     sectionTitle: 'Om mig',
     paragraphs: [
-      'Jag är full stack-utvecklare under utbildning och slutför just nu mitt 3-åriga diplom i mjukvaruutveckling hos Aptech, samtidigt som jag jobbar med riktiga kund- och frilansprojekt vid sidan om. Det mesta jag kan har jag inte lärt mig i kurslitteraturen, utan genom att bygga saker som faktiskt behövde fungera för någon annan.',
+      'Jag är full stack-utvecklare och slutför just nu mitt 3-åriga diplom i mjukvaruutveckling hos Aptech, samtidigt som jag jobbar med riktiga kund- och frilansprojekt vid sidan om. Det mesta jag kan har jag inte lärt mig i kurslitteraturen, utan genom att bygga saker som faktiskt behövde fungera för någon annan.',
       'Mitt frontend-fokus ligger på React.js med Vite — snabba, komponentbaserade gränssnitt med state, routing och responsiva layouter som är snabba att iterera på. På backend bygger jag ut mina kunskaper i Express.js och PHP/Laravel, där jag sätter upp REST-endpoints, autentisering och datahantering bakom gränssnittet.',
       'Under en vanlig vecka jobbar jag mig igenom hela stacken — jag bygger React-komponenter och state och växlar sedan till Express eller Laravel för att designa MySQL-scheman och tillhörande CRUD-flöden. Hela projektet hålls under versionshantering med Git och GitHub, och jag ser till att branches och commits är rena nog för att någon annan enkelt ska kunna ta över arbetet. AI-verktyg — Claude, Cursor och ChatGPT — är också en del av det dagliga arbetsflödet: de snabbar upp rutinarbete och research, men ersätter inte det faktiska tekniska omdömet.',
       'Innan utveckling arbetade jag praktiskt med SEO — on-page- och off-page-optimering, sökordsanalys och trafikanalys med Google Analytics och SEMrush. Den bakgrunden präglar fortfarande hur jag bygger: semantisk uppmärkning, ett öga för prestanda och sidstruktur, och vanan att mäta vad som faktiskt sker istället för att gissa.',
@@ -226,6 +226,7 @@ export default {
     heading: 'Nu bygger vi något.',
     line: 'Hör gärna av dig om heltidsroller, frilansuppdrag, eller bara för att snacka teknik.',
     actions: {
+      call: 'Ring',
       whatsapp: 'WhatsApp',
       github: 'GitHub',
       linkedin: 'LinkedIn',
