@@ -16,7 +16,7 @@ export const resumeUrl = '/Ammad-Mazhar-CV.pdf';
 
 export const skills = [
   { label: 'Frontend', items: ['React.js', 'Vite', 'JavaScript', 'HTML', 'CSS'] },
-  { label: 'Backend', items: ['Express.js', 'PHP', 'Laravel'] },
+  { label: 'Backend', items: ['Express.js', 'PHP', 'Laravel', 'Supabase', 'Cloudflare'] },
   { label: 'SEO', items: ['On/Off-page SEO', 'Keyword Research', 'Google Analytics', 'SEMrush'] },
   { label: 'Tools', items: ['Git', 'GitHub', 'VS Code'] },
   { label: 'AI-Assisted Development', items: ['Claude', 'Cursor', 'ChatGPT'] },
@@ -50,7 +50,7 @@ export const expertise = [
     title: 'Data & Tooling',
     blurb:
       'Relational schema design, CRUD flows, and version control kept clean — plus an AI-assisted workflow with Claude, Cursor, and ChatGPT to move faster without cutting corners.',
-    stack: ['MySQL', 'Git', 'GitHub', 'VS Code', 'Claude', 'Cursor', 'ChatGPT'],
+    stack: ['MySQL', 'Supabase', 'Cloudflare', 'Git', 'GitHub', 'VS Code', 'Claude', 'Cursor', 'ChatGPT'],
     level: 6,
     note: 'Comfortable',
   },

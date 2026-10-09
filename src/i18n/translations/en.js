@@ -49,6 +49,8 @@ export default {
       php: { name: 'PHP', category: 'Language' },
       restApis: { name: 'REST APIs', category: 'Integration' },
       mysql: { name: 'MySQL', category: 'Database' },
+      supabase: { name: 'Supabase', category: 'Database' },
+      cloudflare: { name: 'Cloudflare', category: 'Edge & Hosting' },
       gitGithub: { name: 'Git & GitHub', category: 'Version Control' },
       seo: { name: 'SEO', category: 'Growth' },
       keywordResearch: { name: 'Keyword Research', category: 'Growth' },
@@ -152,11 +154,49 @@ export default {
       Deployed: 'Deployed',
       'Ordering System': 'Ordering System',
       PWA: 'PWA',
+      Supabase: 'Supabase',
+      Cloudflare: 'Cloudflare',
     },
     viewProject: 'View project',
     noLiveLink: 'No live link',
     items: {
-      '01': { description: 'A CRM application built to manage field service operations end to end.' },
+      '01': {
+        description: 'A field-service CRM with an AI route optimizer and AI receptionist, on web and mobile.',
+        caseStudy: {
+          toggleOpen: 'Read case study',
+          toggleClose: 'Close case study',
+          sections: [
+            {
+              heading: 'The problem',
+              body: 'Field-service companies juggle jobs, technicians, customers and phone calls across scattered tools. Technicians lose time and fuel on inefficient routes, and missed calls mean missed jobs.',
+            },
+            {
+              heading: 'What I built',
+              body: 'A complete CRM for field-service businesses, built as a commercial product and available on both web and mobile.',
+            },
+            {
+              heading: 'Key features',
+              list: [
+                'AI route optimizer: sends each technician to the nearest job and plans the route to save fuel and time.',
+                'AI receptionist: handles incoming customer inquiries automatically.',
+                'Full CRM core: customers, jobs, scheduling and technician management in one place.',
+              ],
+            },
+            {
+              heading: 'My role',
+              body: 'I designed and built the entire product myself (frontend, backend and mobile), using AI tools like Claude to move faster. Stack: React and Vite, an Express API, Supabase and Cloudflare.',
+            },
+            {
+              heading: 'The hardest part',
+              body: 'Getting the database and APIs working reliably together: connecting the React frontend, Express backend, Supabase and the AI services so data stays in sync across web and mobile.',
+            },
+            {
+              heading: 'Where it is now',
+              body: 'Aero Tech Solution Inc. currently uses it to train new employees while development continues.',
+            },
+          ],
+        },
+      },
       '02': { description: 'Next.js e-commerce storefront, live on a custom domain.' },
       '03': { description: 'Long-term client site, live for 1+ year, with full stack maintenance.' },
       '04': {

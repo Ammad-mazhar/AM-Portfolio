@@ -46,6 +46,8 @@ export default {
       php: { name: 'PHP', category: 'Sprache' },
       restApis: { name: 'REST-APIs', category: 'Integration' },
       mysql: { name: 'MySQL', category: 'Datenbank' },
+      supabase: { name: 'Supabase', category: 'Datenbank' },
+      cloudflare: { name: 'Cloudflare', category: 'Edge & Hosting' },
       gitGithub: { name: 'Git & GitHub', category: 'Versionskontrolle' },
       seo: { name: 'SEO', category: 'Wachstum' },
       keywordResearch: { name: 'Keyword-Recherche', category: 'Wachstum' },
@@ -148,11 +150,49 @@ export default {
       Deployed: 'Live geschaltet',
       'Ordering System': 'Bestellsystem',
       PWA: 'PWA',
+      Supabase: 'Supabase',
+      Cloudflare: 'Cloudflare',
     },
     viewProject: 'Projekt ansehen',
     noLiveLink: 'Kein Live-Link',
     items: {
-      '01': { description: 'Eine CRM-Anwendung für die durchgängige Verwaltung von Außendienst-Einsätzen.' },
+      '01': {
+        description: 'Ein Field-Service-CRM mit KI-Routenoptimierer und KI-Rezeptionist, für Web und Mobile.',
+        caseStudy: {
+          toggleOpen: 'Fallstudie lesen',
+          toggleClose: 'Fallstudie schließen',
+          sections: [
+            {
+              heading: 'Das Problem',
+              body: 'Außendienst-Unternehmen jonglieren mit Aufträgen, Technikern, Kunden und Anrufen über verstreute Tools. Techniker verlieren Zeit und Sprit durch ineffiziente Routen, und verpasste Anrufe bedeuten verpasste Aufträge.',
+            },
+            {
+              heading: 'Was ich gebaut habe',
+              body: 'Ein vollständiges CRM für Außendienst-Unternehmen, entwickelt als kommerzielles Produkt und verfügbar für Web und Mobile.',
+            },
+            {
+              heading: 'Wichtigste Funktionen',
+              list: [
+                'KI-Routenoptimierer: schickt jeden Techniker zum nächstgelegenen Auftrag und plant die Route, um Sprit und Zeit zu sparen.',
+                'KI-Rezeptionist: beantwortet eingehende Kundenanfragen automatisch.',
+                'Vollständiger CRM-Kern: Kunden, Aufträge, Terminplanung und Technikerverwaltung an einem Ort.',
+              ],
+            },
+            {
+              heading: 'Meine Rolle',
+              body: 'Ich habe das gesamte Produkt allein entworfen und gebaut (Frontend, Backend und Mobile) und dabei KI-Tools wie Claude genutzt, um schneller voranzukommen. Stack: React und Vite, eine Express-API, Supabase und Cloudflare.',
+            },
+            {
+              heading: 'Die größte Herausforderung',
+              body: 'Datenbank und APIs zuverlässig zusammenspielen zu lassen: React-Frontend, Express-Backend, Supabase und die KI-Dienste so zu verbinden, dass die Daten auf Web und Mobile synchron bleiben.',
+            },
+            {
+              heading: 'Wo es heute steht',
+              body: 'Aero Tech Solution Inc. nutzt es aktuell, um neue Mitarbeiter einzuarbeiten, während die Weiterentwicklung läuft.',
+            },
+          ],
+        },
+      },
       '02': { description: 'Next.js-Onlineshop, live auf einer eigenen Domain.' },
       '03': { description: 'Langjährige Kundenseite, seit über einem Jahr live, mit vollständiger Full-Stack-Betreuung.' },
       '04': {

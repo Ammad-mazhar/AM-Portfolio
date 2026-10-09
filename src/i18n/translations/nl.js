@@ -46,6 +46,8 @@ export default {
       php: { name: 'PHP', category: 'Taal' },
       restApis: { name: "REST-API's", category: 'Integratie' },
       mysql: { name: 'MySQL', category: 'Database' },
+      supabase: { name: 'Supabase', category: 'Database' },
+      cloudflare: { name: 'Cloudflare', category: 'Edge & Hosting' },
       gitGithub: { name: 'Git & GitHub', category: 'Versiebeheer' },
       seo: { name: 'SEO', category: 'Groei' },
       keywordResearch: { name: 'Zoekwoordenonderzoek', category: 'Groei' },
@@ -148,11 +150,49 @@ export default {
       Deployed: 'Live gezet',
       'Ordering System': 'Bestelsysteem',
       PWA: 'PWA',
+      Supabase: 'Supabase',
+      Cloudflare: 'Cloudflare',
     },
     viewProject: 'Bekijk project',
     noLiveLink: 'Geen live link',
     items: {
-      '01': { description: 'Een CRM-applicatie die end-to-end field-service-operaties beheert.' },
+      '01': {
+        description: 'Een field-service CRM met AI-route-optimalisatie en AI-receptionist, op web en mobiel.',
+        caseStudy: {
+          toggleOpen: 'Lees de case study',
+          toggleClose: 'Case study sluiten',
+          sections: [
+            {
+              heading: 'Het probleem',
+              body: 'Field-service-bedrijven jongleren met opdrachten, technici, klanten en telefoontjes over verschillende losse tools. Technici verliezen tijd en brandstof door inefficiënte routes, en gemiste telefoontjes betekenen gemiste klussen.',
+            },
+            {
+              heading: 'Wat ik heb gebouwd',
+              body: 'Een compleet CRM voor field-service-bedrijven, gebouwd als commercieel product en beschikbaar op zowel web als mobiel.',
+            },
+            {
+              heading: 'Belangrijkste functies',
+              list: [
+                'AI-route-optimalisatie: stuurt elke technicus naar de dichtstbijzijnde klus en plant de route om brandstof en tijd te besparen.',
+                'AI-receptionist: behandelt binnenkomende klantvragen automatisch.',
+                'Volledige CRM-kern: klanten, opdrachten, planning en technicusbeheer op één plek.',
+              ],
+            },
+            {
+              heading: 'Mijn rol',
+              body: 'Ik heb het hele product zelf ontworpen en gebouwd (frontend, backend en mobiel), met AI-tools zoals Claude om sneller te werken. Stack: React en Vite, een Express-API, Supabase en Cloudflare.',
+            },
+            {
+              heading: 'Het moeilijkste deel',
+              body: "De database en API's betrouwbaar met elkaar laten samenwerken: de React-frontend, Express-backend, Supabase en de AI-diensten zo verbinden dat data synchroon blijft tussen web en mobiel.",
+            },
+            {
+              heading: 'Waar het nu staat',
+              body: 'Aero Tech Solution Inc. gebruikt het momenteel om nieuwe medewerkers te trainen, terwijl de ontwikkeling doorgaat.',
+            },
+          ],
+        },
+      },
       '02': { description: 'Next.js webshop, live op een eigen domein.' },
       '03': { description: 'Vaste klantsite, al meer dan een jaar live, met volledig full-stack onderhoud.' },
       '04': {

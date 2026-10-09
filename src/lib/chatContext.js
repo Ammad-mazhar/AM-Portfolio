@@ -32,6 +32,10 @@ const credentialLines = [
   `Competitions: ${credentials.competitions.join('; ')}`,
 ].join('\n');
 
+const CUSTOM_FIELD_PROS_NOTE = `
+Custom Field Pros is a full CRM for field-service businesses, built as a commercial product on both web and mobile. It has an AI route optimizer that routes each technician to the nearest job and plans the route to save fuel and time, and an AI receptionist that handles incoming customer inquiries automatically, alongside the core CRM (customers, jobs, scheduling, technician management). Ammad designed and built the whole product himself (frontend, backend, mobile), using React, Vite, an Express API, Supabase, and Cloudflare. Aero Tech Solution Inc. currently uses it to train new employees while development continues.
+`.trim();
+
 export const KNOWLEDGE_BASE = `
 ABOUT AMMAD MAZHAR
 ${contact.name} is a full stack developer based in Pakistan (works remotely), currently completing a 3-year Software Engineering diploma at Aptech. His frontend focus is React.js with Vite; on the backend he works with Express.js and PHP/Laravel. He has a prior background in practical SEO — on/off-page optimization, keyword research, and analytics. He is currently open to full-time roles and freelance work.
@@ -51,6 +55,9 @@ ${expertiseLines}
 
 PROJECTS
 ${projectLines}
+
+CUSTOM FIELD PROS — DETAIL
+${CUSTOM_FIELD_PROS_NOTE}
 
 EXPERIENCE / BUILD LOG
 ${buildLogLines}

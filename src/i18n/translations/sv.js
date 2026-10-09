@@ -46,6 +46,8 @@ export default {
       php: { name: 'PHP', category: 'Språk' },
       restApis: { name: 'REST-API:er', category: 'Integration' },
       mysql: { name: 'MySQL', category: 'Databas' },
+      supabase: { name: 'Supabase', category: 'Databas' },
+      cloudflare: { name: 'Cloudflare', category: 'Edge & Hosting' },
       gitGithub: { name: 'Git & GitHub', category: 'Versionshantering' },
       seo: { name: 'SEO', category: 'Tillväxt' },
       keywordResearch: { name: 'Sökordsanalys', category: 'Tillväxt' },
@@ -147,11 +149,49 @@ export default {
       Deployed: 'Driftsatt',
       'Ordering System': 'Beställningssystem',
       PWA: 'PWA',
+      Supabase: 'Supabase',
+      Cloudflare: 'Cloudflare',
     },
     viewProject: 'Visa projekt',
     noLiveLink: 'Ingen live-länk',
     items: {
-      '01': { description: 'En CRM-applikation byggd för att hantera fältserviceverksamhet från början till slut.' },
+      '01': {
+        description: 'Ett fältservice-CRM med AI-ruttoptimerare och AI-receptionist, på webb och mobil.',
+        caseStudy: {
+          toggleOpen: 'Läs fallstudien',
+          toggleClose: 'Stäng fallstudien',
+          sections: [
+            {
+              heading: 'Problemet',
+              body: 'Fältservicebolag hanterar jobb, tekniker, kunder och telefonsamtal över utspridda verktyg. Tekniker förlorar tid och bränsle på ineffektiva rutter, och missade samtal betyder missade jobb.',
+            },
+            {
+              heading: 'Vad jag byggde',
+              body: 'Ett komplett CRM för fältservicebolag, byggt som en kommersiell produkt och tillgängligt på både webb och mobil.',
+            },
+            {
+              heading: 'Nyckelfunktioner',
+              list: [
+                'AI-ruttoptimerare: skickar varje tekniker till närmaste jobb och planerar rutten för att spara bränsle och tid.',
+                'AI-receptionist: hanterar inkommande kundfrågor automatiskt.',
+                'Komplett CRM-kärna: kunder, jobb, schemaläggning och teknikerhantering på ett ställe.',
+              ],
+            },
+            {
+              heading: 'Min roll',
+              body: 'Jag designade och byggde hela produkten själv (frontend, backend och mobil), och använde AI-verktyg som Claude för att gå snabbare fram. Stack: React och Vite, ett Express-API, Supabase och Cloudflare.',
+            },
+            {
+              heading: 'Den svåraste delen',
+              body: 'Att få databasen och API:erna att samarbeta tillförlitligt: koppla samman React-frontend, Express-backend, Supabase och AI-tjänsterna så att data hålls synkad mellan webb och mobil.',
+            },
+            {
+              heading: 'Var det står idag',
+              body: 'Aero Tech Solution Inc. använder det just nu för att utbilda nya medarbetare medan vidareutvecklingen fortsätter.',
+            },
+          ],
+        },
+      },
       '02': { description: 'Next.js-webbutik, live på en egen domän.' },
       '03': { description: 'Långsiktig kundsajt, live i över ett år, med fullständigt full stack-underhåll.' },
       '04': {

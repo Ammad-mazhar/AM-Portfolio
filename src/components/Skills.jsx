@@ -11,8 +11,10 @@ import {
   Bot,
   Braces,
   BrainCircuit,
+  Cloud,
   Contact,
   Database,
+  DatabaseZap,
   FileCode2,
   Flame,
   GitBranch,
@@ -49,6 +51,8 @@ const SKILL_KEYS = [
   { key: 'php', icon: FileCode2 },
   { key: 'restApis', icon: Webhook },
   { key: 'mysql', icon: Database },
+  { key: 'supabase', icon: DatabaseZap },
+  { key: 'cloudflare', icon: Cloud },
   // Ring 3 — tooling & growth
   { key: 'gitGithub', icon: GitBranch },
   { key: 'seo', icon: Search },
@@ -67,7 +71,7 @@ const SKILL_KEYS = [
 
 const RING_CONFIG = [
   { count: 5, radiusFraction: 0.16, duration: 42, direction: 1 },
-  { count: 6, radiusFraction: 0.3, duration: 58, direction: -1 },
+  { count: 8, radiusFraction: 0.3, duration: 58, direction: -1 },
   { count: 10, radiusFraction: 0.45, duration: 84, direction: 1 },
 ];
 
